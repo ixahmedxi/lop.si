@@ -1,4 +1,3 @@
-import { darken, lighten } from 'polished'
 import { Theme } from 'theme-ui'
 
 const makeTheme = <T extends Theme>(t: T): T => t
@@ -6,25 +5,19 @@ const makeTheme = <T extends Theme>(t: T): T => t
 export const theme = makeTheme({
   useColorSchemeMediaQuery: true,
   colors: {
-    primary: '#657eea',
-    secondary: '#37b3ac',
-    text: '#111',
-    background: '#fff',
-    muted: darken(0.1, '#fff'),
+    primary: '#6787EF',
+    text: '#2B2D32',
+    background: '#EEEEEE',
     modes: {
       dark: {
-        primary: '#657eea',
-        secondary: '#37b3ac',
-        text: '#fff',
-        background: '#111',
-        muted: lighten(0.1, '#111')
+        primary: '#6787EF',
+        text: '#EEEEEE',
+        background: '#2B2D32'
       },
       light: {
-        primary: '#657eea',
-        secondary: '#37b3ac',
-        text: '#111',
-        background: '#fff',
-        muted: darken(0.1, '#fff')
+        primary: '#6787EF',
+        text: '#2B2D32',
+        background: '#EEEEEE'
       }
     }
   },
@@ -49,5 +42,7 @@ export const theme = makeTheme({
   lineHeights: [1.5, 1.8, 2, 2.5, 3],
   breakpoints: ['576px', '768px', '992px', '1200px']
 })
+
+export const modes = Object.keys(theme.colors.modes)
 
 export type ThemeType = typeof theme
