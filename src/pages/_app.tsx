@@ -12,8 +12,8 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
       <ThemeProvider theme={theme}>
         <GlobalStyles />
         <DefaultSeo
-          title="next-boilerpack - A nextjs boilerplate with some cool stuff added to it"
-          description="next-boilerpack is a next.js boilerplate that includes many of the commonly used tools and libraries alongside to make starting a new project fast and effortless"
+          title="lop.si - A simple url shortener"
+          description="lop.si is a url shortener to transform long and unmanageable urls into short and pretty alternatives"
         />
         <Component {...pageProps} />
       </ThemeProvider>
