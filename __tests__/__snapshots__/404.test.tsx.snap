@@ -1,50 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`404 Page matches snapshot 1`] = `
-.emotion-5 {
-  box-sizing: border-box;
-  margin: 0;
-  min-width: 0;
-  width: 100%;
-  max-width: container;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 100%;
-  margin: 0 auto;
-  padding-left: 16px;
-  padding-right: 16px;
-}
-
-@media screen and (min-width:576px) {
-  .emotion-5 {
-    max-width: 540px;
-  }
-}
-
-@media screen and (min-width:768px) {
-  .emotion-5 {
-    max-width: 720px;
-  }
-}
-
-@media screen and (min-width:992px) {
-  .emotion-5 {
-    max-width: 960px;
-  }
-}
-
-@media screen and (min-width:1200px) {
-  .emotion-5 {
-    max-width: 1140px;
-  }
-}
-
-@media screen and (min-width:1400px) {
-  .emotion-5 {
-    max-width: 1320px;
-  }
-}
-
 .emotion-4 {
   box-sizing: border-box;
   margin: 0;
@@ -135,37 +91,32 @@ exports[`404 Page matches snapshot 1`] = `
 
 <div>
   <div
-    class="emotion-5"
-    data-testid="container"
+    class="emotion-4"
   >
     <div
-      class="emotion-4"
+      class="emotion-3"
     >
-      <div
-        class="emotion-3"
+      <h1
+        class="emotion-0"
       >
-        <h1
-          class="emotion-0"
+        <span
+          aria-label="Cry emoji"
+          role="img"
         >
-          <span
-            aria-label="Cry emoji"
-            role="img"
-          >
-            😢
-          </span>
-           
-        </h1>
-        <h1
-          class="emotion-1"
-        >
-          Something isn't right...
-        </h1>
-        <p
-          class="emotion-2"
-        >
-          An Error of 404 Occured
-        </p>
-      </div>
+          😢
+        </span>
+         
+      </h1>
+      <h1
+        class="emotion-1"
+      >
+        Something isn't right...
+      </h1>
+      <p
+        class="emotion-2"
+      >
+        An Error of 404 Occured
+      </p>
     </div>
   </div>
 </div>
