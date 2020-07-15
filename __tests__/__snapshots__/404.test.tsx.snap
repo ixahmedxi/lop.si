@@ -1,0 +1,172 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`404 Page matches snapshot 1`] = `
+.emotion-5 {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  width: 100%;
+  max-width: container;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  margin: 0 auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+@media screen and (min-width:576px) {
+  .emotion-5 {
+    max-width: 540px;
+  }
+}
+
+@media screen and (min-width:768px) {
+  .emotion-5 {
+    max-width: 720px;
+  }
+}
+
+@media screen and (min-width:992px) {
+  .emotion-5 {
+    max-width: 960px;
+  }
+}
+
+@media screen and (min-width:1200px) {
+  .emotion-5 {
+    max-width: 1140px;
+  }
+}
+
+@media screen and (min-width:1400px) {
+  .emotion-5 {
+    max-width: 1320px;
+  }
+}
+
+.emotion-4 {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  height: 100vh;
+  width: 100%;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.emotion-3 {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+}
+
+.emotion-0 {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  font-size: 48px;
+  text-align: center;
+}
+
+@media screen and (min-width:576px) {
+  .emotion-0 {
+    font-size: 56px;
+  }
+}
+
+@media screen and (min-width:768px) {
+  .emotion-0 {
+    font-size: 64px;
+  }
+}
+
+.emotion-1 {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  color: var(--theme-ui-colors-primary,#657eea);
+  font-size: 24px;
+  text-align: center;
+}
+
+@media screen and (min-width:576px) {
+  .emotion-1 {
+    font-size: 32px;
+  }
+}
+
+@media screen and (min-width:768px) {
+  .emotion-1 {
+    font-size: 40px;
+  }
+}
+
+.emotion-2 {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  text-align: center;
+  font-size: 12px;
+  padding-top: 16px;
+}
+
+@media screen and (min-width:576px) {
+  .emotion-2 {
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width:768px) {
+  .emotion-2 {
+    font-size: 24px;
+  }
+}
+
+<div>
+  <div
+    class="emotion-5"
+    data-testid="container"
+  >
+    <div
+      class="emotion-4"
+    >
+      <div
+        class="emotion-3"
+      >
+        <h1
+          class="emotion-0"
+        >
+          <span
+            aria-label="Cry emoji"
+            role="img"
+          >
+            😢
+          </span>
+           
+        </h1>
+        <h1
+          class="emotion-1"
+        >
+          Something isn't right...
+        </h1>
+        <p
+          class="emotion-2"
+        >
+          An Error of 404 Occured
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
