@@ -22,7 +22,8 @@ export const theme = makeTheme({
     }
   },
   fonts: {
-    body: 'Inter, Arial, "Helvetica Neue", sans-serif'
+    body: 'Inter, Arial, "Helvetica Neue", sans-serif',
+    heading: 'Pacifico, Arial, "Helvetica Neue", sans-serif'
   },
   fontWeights: {
     body: 400,
@@ -32,8 +33,7 @@ export const theme = makeTheme({
     root: {
       fontFamily: 'body',
       color: 'text',
-      bg: 'background',
-      transition: 'background-color 0.2s ease-out'
+      bg: 'background'
     }
   },
   fontSizes: [12, 16, 24, 32, 40, 48, 56, 64],
