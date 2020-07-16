@@ -11,7 +11,8 @@ const Title: SxStyleProp = {
 }
 
 const Description: SxStyleProp = {
-  lineHeight: 1
+  lineHeight: 1,
+  opacity: 0.7
 }
 
 export const Introduction: React.FC = () => {
