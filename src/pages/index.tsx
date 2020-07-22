@@ -15,7 +15,7 @@ const Index: React.FC = () => {
       <div>
         <Introduction />
         <Form />
-        <Card url="https://lop.si/jNuK" />
+        <Card url="https://lop.si/nHlf" />
       </div>
       <Footer />
     </Container>

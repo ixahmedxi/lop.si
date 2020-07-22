@@ -2,22 +2,27 @@ import { Theme } from 'theme-ui'
 
 const makeTheme = <T extends Theme>(t: T): T => t
 
+const darkGray = '#2B2D32'
+const lightGray = '#EEEEEE'
+
+const primary = '#8093f2'
+
 export const theme = makeTheme({
   useColorSchemeMediaQuery: true,
   colors: {
-    primary: '#6787EF',
-    text: '#2B2D32',
-    background: '#EEEEEE',
+    primary,
+    text: lightGray,
+    background: darkGray,
     modes: {
       dark: {
-        primary: '#6787EF',
-        text: '#EEEEEE',
-        background: '#2B2D32'
+        primary,
+        text: lightGray,
+        background: darkGray
       },
       light: {
-        primary: '#6787EF',
-        text: '#2B2D32',
-        background: '#EEEEEE'
+        primary,
+        text: darkGray,
+        background: lightGray
       }
     }
   },
@@ -34,6 +39,9 @@ export const theme = makeTheme({
       fontFamily: 'body',
       color: 'text',
       bg: 'background'
+    },
+    spinner: {
+      color: 'white'
     }
   },
   fontSizes: [12, 16, 24, 32, 40, 48, 56, 64],

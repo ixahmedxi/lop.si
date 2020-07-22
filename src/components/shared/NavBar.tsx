@@ -1,7 +1,7 @@
 /* @jsx jsx */
 
-import { modes, ThemeType } from '@theme'
-import { darken, lighten } from '@theme-ui/color'
+import { useNeuBoxShadow } from '@hooks/useBoxShadow'
+import { modes } from '@theme'
 import { FiGithub, FiMoon, FiSun } from 'react-icons/fi'
 import { jsx, SxStyleProp, useColorMode } from 'theme-ui'
 
@@ -27,28 +27,30 @@ const Logo: SxStyleProp = {
 }
 
 const listItemBaseStyles: SxStyleProp = {
-  width: 50,
-  height: 50,
-  borderRadius: 50,
+  width: '50px',
+  height: '50px',
+  borderRadius: '50px',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
   ml: 4,
   cursor: 'pointer',
-  transition: 'none'
+  overflow: 'hidden'
 }
 
 const Button: SxStyleProp = {
   border: 'none',
   color: 'text',
-  bg: 'transparent',
+  bg: 'background',
   cursor: 'pointer',
+  borderRadius: 100,
   fontSize: 1,
   outline: 'none',
   p: 3
 }
 
 export const NavBar: React.FC = () => {
+  const listShadow = useNeuBoxShadow(7, 13)
   const [mode, setMode] = useColorMode()
 
   const toggleMode = (): void => {
@@ -57,33 +59,16 @@ export const NavBar: React.FC = () => {
     setMode(next)
   }
 
-  const genListItemStyles = (): SxStyleProp => {
-    const darkAmount = mode === 'dark' ? 0.05 : 0.15
-    const lightAmount = mode === 'dark' ? 0.02 : 0.4
-
-    const darkColour = (theme: ThemeType): string =>
-      darken(theme.colors.background, darkAmount)() as string
-    const lightColour = (theme: ThemeType): string =>
-      lighten(theme.colors.background, lightAmount)() as string
-
-    return {
-      ...listItemBaseStyles,
-      background: (theme) => `linear-gradient(145deg, ${lightColour(theme)}, ${darkColour(theme)})`,
-      boxShadow: (theme) =>
-        `-7px -7px 13px ${lightColour(theme)}, 7px 7px 13px ${darkColour(theme)}`
-    }
-  }
-
   return (
     <nav sx={Wrapper}>
       <h1 sx={Logo}>lop.si</h1>
       <ul sx={NavItems}>
-        <li sx={genListItemStyles()}>
+        <li sx={{ ...listItemBaseStyles, ...listShadow }}>
           <button sx={Button} onClick={() => toggleMode()}>
             {mode === 'dark' ? <FiSun /> : <FiMoon />}
           </button>
         </li>
-        <li sx={genListItemStyles()}>
+        <li sx={{ ...listItemBaseStyles, ...listShadow }}>
           <a
             href="https://github.com/ixahmedxi/lop.si"
             target="_blank"

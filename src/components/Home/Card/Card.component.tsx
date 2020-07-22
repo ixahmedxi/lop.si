@@ -1,22 +1,26 @@
 /* @jsx jsx */
 import { useNeuBoxShadow } from '@hooks/useBoxShadow'
 import Col from 'react-bootstrap/Col'
-import Row from 'react-bootstrap/Row'
 import { FiCheck, FiClipboard } from 'react-icons/fi'
 import useClipboard from 'react-use-clipboard'
 import { Box, Flex, jsx, Link, SxStyleProp, Text } from 'theme-ui'
 
 export const Card: React.FC<{ url: string }> = ({ url }) => {
   const cardShadow = useNeuBoxShadow(15, 25)
-  const iconButtonShadow = useNeuBoxShadow(3, 6)
+  const iconButtonShadow = useNeuBoxShadow(10, 15)
   const [isCopied, setCopied] = useClipboard(url, { successDuration: 2000 })
 
   const styles: SxStyleProp = {
-    wrapper: {
-      pt: 12,
-      position: 'relative'
+    column: {
+      ...cardShadow,
+      bg: 'background',
+      borderRadius: 20,
+      p: 0,
+      overflow: 'hidden',
+      position: 'relative',
+      mt: 11,
+      opacity: 1
     },
-    column: { ...cardShadow, bg: 'background', borderRadius: 20, p: 0, overflow: 'hidden' },
     cardTitle: { fontWeight: 'heading', fontSize: 1, color: 'primary' },
     cardDescription: { fontSize: 0, pt: 1, lineHeight: 1, opacity: 0.7 },
     linkRow: {
@@ -30,10 +34,11 @@ export const Card: React.FC<{ url: string }> = ({ url }) => {
       height: 5,
       borderRadius: 50,
       border: 'none',
-      bg: 'background',
-      color: 'primary',
+      bg: 'primary',
+      color: 'background',
       cursor: 'pointer',
-      outline: 'none'
+      outline: 'none',
+      ml: 3
     },
     copiedBox: {
       width: '100%',
@@ -51,34 +56,30 @@ export const Card: React.FC<{ url: string }> = ({ url }) => {
   }
 
   return (
-    <Box sx={styles.wrapper}>
-      <Row>
-        <Col sm={{ span: 4, offset: 4 }} sx={styles.column}>
-          <Box sx={styles.copiedBox}>
-            {isCopied ? (
-              <Text as="p">
-                <FiCheck /> Copied to clipboard!
-              </Text>
-            ) : null}
-          </Box>
-          <Box sx={{ px: 5, py: 5 }}>
-            <Text as="h2" sx={styles.cardTitle}>
-              Your previously created url
-            </Text>
-            <Text as="p" sx={styles.cardDescription}>
-              Here&#39;s your most recently created url if you need to copy it again:
-            </Text>
-            <Flex sx={styles.linkRow}>
-              <Link href={url} target="_blank" rel="noopener noreferrer" sx={{ color: 'primary' }}>
-                {url}
-              </Link>
-              <button type="button" sx={styles.iconButton} onClick={setCopied}>
-                <FiClipboard />
-              </button>
-            </Flex>
-          </Box>
-        </Col>
-      </Row>
-    </Box>
+    <Col sm={{ span: 4, offset: 4 }} sx={styles.column}>
+      <Box sx={styles.copiedBox}>
+        {isCopied ? (
+          <Text as="p">
+            <FiCheck /> Copied to clipboard!
+          </Text>
+        ) : null}
+      </Box>
+      <Box sx={{ px: 5, py: 5 }}>
+        <Text as="h2" sx={styles.cardTitle}>
+          Here&#39;s your url:
+        </Text>
+        <Text as="p" sx={styles.cardDescription}>
+          You can copy the url to your clipboard by pressing the button below.
+        </Text>
+        <Flex sx={styles.linkRow}>
+          <Link href={url} target="_blank" rel="noopener noreferrer" sx={{ color: 'primary' }}>
+            {url}
+          </Link>
+          <button type="button" sx={styles.iconButton} onClick={setCopied}>
+            <FiClipboard />
+          </button>
+        </Flex>
+      </Box>
+    </Col>
   )
 }
