@@ -1,13 +1,13 @@
 /* @jsx jsx */
 import { useNeuBoxShadow } from '@hooks/useBoxShadow'
 import Col from 'react-bootstrap/Col'
-import { FiCheck, FiClipboard } from 'react-icons/fi'
+import { FiCheckSquare, FiClipboard } from 'react-icons/fi'
 import useClipboard from 'react-use-clipboard'
 import { Box, Flex, jsx, Link, SxStyleProp, Text } from 'theme-ui'
 
 export const Card: React.FC<{ url: string }> = ({ url }) => {
   const cardShadow = useNeuBoxShadow(15, 25)
-  const iconButtonShadow = useNeuBoxShadow(10, 15)
+  const iconButtonShadow = useNeuBoxShadow(3, 6)
   const [isCopied, setCopied] = useClipboard(url, { successDuration: 2000 })
 
   const styles: SxStyleProp = {
@@ -24,7 +24,7 @@ export const Card: React.FC<{ url: string }> = ({ url }) => {
     cardTitle: { fontWeight: 'heading', fontSize: 1, color: 'primary' },
     cardDescription: { fontSize: 0, pt: 1, lineHeight: 1, opacity: 0.7 },
     linkRow: {
-      pt: 3,
+      pt: 2,
       alignItems: 'center',
       justifyContent: 'space-between'
     },
@@ -34,11 +34,10 @@ export const Card: React.FC<{ url: string }> = ({ url }) => {
       height: 5,
       borderRadius: 50,
       border: 'none',
-      bg: 'primary',
-      color: 'background',
+      bg: 'background',
+      color: 'primary',
       cursor: 'pointer',
-      outline: 'none',
-      ml: 3
+      outline: 'none'
     },
     copiedBox: {
       width: '100%',
@@ -50,7 +49,7 @@ export const Card: React.FC<{ url: string }> = ({ url }) => {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      height: isCopied ? 6 : 0,
+      height: isCopied ? 5 : 0,
       transition: '0.2s ease-out'
     }
   }
@@ -59,17 +58,17 @@ export const Card: React.FC<{ url: string }> = ({ url }) => {
     <Col sm={{ span: 4, offset: 4 }} sx={styles.column}>
       <Box sx={styles.copiedBox}>
         {isCopied ? (
-          <Text as="p">
-            <FiCheck /> Copied to clipboard!
+          <Text as="p" sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <FiCheckSquare sx={{ mr: 1 }} /> Copied to clipboard!
           </Text>
         ) : null}
       </Box>
-      <Box sx={{ px: 5, py: 5 }}>
+      <Box sx={{ p: 5 }}>
         <Text as="h2" sx={styles.cardTitle}>
-          Here&#39;s your url:
+          Your previously created url:
         </Text>
         <Text as="p" sx={styles.cardDescription}>
-          You can copy the url to your clipboard by pressing the button below.
+          Here&#39;s your most recently created url if you wish to copy it to your clipboard.
         </Text>
         <Flex sx={styles.linkRow}>
           <Link href={url} target="_blank" rel="noopener noreferrer" sx={{ color: 'primary' }}>

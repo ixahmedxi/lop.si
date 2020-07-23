@@ -77,7 +77,7 @@ export const Form: React.FC = () => {
             }}
           >
             <div sx={InputWrapper}>
-              <FiPaperclip />
+              <FiPaperclip sx={{ opacity: 0.5 }} />
               <input sx={Input} type="url" placeholder="Paste your url here..." />
             </div>
             <button sx={{ ...Button, ...buttonShadow }} type="submit">

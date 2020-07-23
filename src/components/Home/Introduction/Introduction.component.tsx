@@ -20,11 +20,11 @@ export const Introduction: React.FC = () => {
     <Row>
       <Col sm={{ span: 8, offset: 2 }} sx={{ textAlign: 'center' }}>
         <Text as="h1" sx={Title}>
-          Create professional looking URLs
+          Create professional looking urls
         </Text>
         <Text as="p" sx={Description}>
-          lop.si helps you transform these long, unmanageable and ugly URLs into a short alternative
-          that looks professional when used in emails and such.
+          lop.si helps you transform these long, unmanageable and ugly urls into short alternatives
+          that look professional when used in emails and such.
         </Text>
       </Col>
     </Row>
