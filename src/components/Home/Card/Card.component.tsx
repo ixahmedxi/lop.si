@@ -1,4 +1,5 @@
 /* @jsx jsx */
+import { keyframes } from '@emotion/core'
 import { useNeuBoxShadow } from '@hooks/useBoxShadow'
 import Col from 'react-bootstrap/Col'
 import { FiCheckSquare, FiClipboard } from 'react-icons/fi'
@@ -6,20 +7,31 @@ import useClipboard from 'react-use-clipboard'
 import { Box, Flex, jsx, Link, SxStyleProp, Text } from 'theme-ui'
 
 export const Card: React.FC<{ url: string }> = ({ url }) => {
-  const cardShadow = useNeuBoxShadow(15, 25)
   const iconButtonShadow = useNeuBoxShadow(3, 6)
   const [isCopied, setCopied] = useClipboard(url, { successDuration: 2000 })
 
+  const showAnimation = keyframes`
+    0% {
+      box-shadow: 0px 0px 0px transparent, 0px 0px 0px transparent;
+    }
+    50% {
+      box-shadow: 0px 0px 0px transparent, 10px 10px 20px #c8c8c8;
+    }
+    100% {
+      box-shadow: -10px -10px 20px #fff, 10px 10px 20px #c8c8c8;
+    }
+  `
+
   const styles: SxStyleProp = {
     column: {
-      ...cardShadow,
       bg: 'background',
       borderRadius: 20,
       p: 0,
       overflow: 'hidden',
       position: 'relative',
       mt: 11,
-      opacity: 1
+      opacity: 1,
+      animation: `${showAnimation} 2s forwards ease-out`
     },
     cardTitle: { fontWeight: 'heading', fontSize: 1, color: 'primary' },
     cardDescription: { fontSize: 0, pt: 1, lineHeight: 1, opacity: 0.7 },

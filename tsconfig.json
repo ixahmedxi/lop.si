@@ -24,7 +24,8 @@
       "@components/*": ["src/components/*"],
       "@hooks/*": ["src/hooks/*"],
       "@store": ["src/store.ts"],
-      "@theme": ["src/theme.ts"]
+      "@theme": ["src/theme.ts"],
+      "@utils/*": ["src/utils/*"]
     }
   },
   "exclude": ["node_modules"],

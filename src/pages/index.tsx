@@ -1,6 +1,5 @@
 /* @jsx jsx */
 
-import { Card } from '@components/Home/Card/Card.component'
 import { Form } from '@components/Home/Form/Form.component'
 import { Introduction } from '@components/Home/Introduction/Introduction.component'
 import { Footer } from '@shared/Footer'
@@ -15,7 +14,6 @@ const Index: React.FC = () => {
       <div>
         <Introduction />
         <Form />
-        <Card url="https://lop.si/nHlf" />
       </div>
       <Footer />
     </Container>

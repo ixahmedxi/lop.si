@@ -5,6 +5,7 @@ import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import { FiArrowRight, FiPaperclip } from 'react-icons/fi'
 import { Box, jsx, Spinner, SxStyleProp } from 'theme-ui'
+import { Card } from '../Card/Card.component'
 
 const baseFormStyles: SxStyleProp = {
   width: '100%',
@@ -12,7 +13,9 @@ const baseFormStyles: SxStyleProp = {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-  bg: 'background'
+  bg: 'background',
+  boxSizing: 'border-box',
+  border: '3px solid transparent'
 }
 
 const InputWrapper: SxStyleProp = {
@@ -86,6 +89,7 @@ export const Form: React.FC = () => {
           </form>
         </Box>
       </Col>
+      <Card url="https://lop.si/fhiu" />
     </Row>
   )
 }
