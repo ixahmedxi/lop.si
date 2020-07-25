@@ -89,7 +89,7 @@ export const Form: React.FC = () => {
           </form>
         </Box>
       </Col>
-      <Card url="https://lop.si/fhiu" />
+      <Card />
     </Row>
   )
 }
