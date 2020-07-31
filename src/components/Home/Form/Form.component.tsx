@@ -1,22 +1,19 @@
 /* @jsx jsx */
+import { yupResolver } from '@hookform/resolvers'
 import { useNeuBoxShadow } from '@hooks/useBoxShadow'
 import { createOneByUrl } from '@utils/firebase'
-import { FormEvent, useState } from 'react'
+import { useState } from 'react'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
-import { FiArrowRight, FiPaperclip } from 'react-icons/fi'
+import { useForm } from 'react-hook-form'
+import { FiAlertTriangle, FiArrowRight, FiPaperclip } from 'react-icons/fi'
 import { Box, jsx, Spinner, SxStyleProp } from 'theme-ui'
+import * as yup from 'yup'
 import { Card } from '../Card/Card.component'
 
-const baseFormStyles: SxStyleProp = {
-  width: '100%',
-  borderRadius: 100,
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'space-between',
-  bg: 'background',
-  boxSizing: 'border-box'
-}
+const schema = yup.object().shape({
+  url: yup.string().required().url()
+})
 
 const InputWrapper: SxStyleProp = {
   display: 'flex',
@@ -55,15 +52,30 @@ export const Form: React.FC = () => {
   const formShadow = useNeuBoxShadow(10, 20)
   const buttonShadow = useNeuBoxShadow(5, 10)
   const [loading, setLoading] = useState(false)
-  const [inputVal, setInputVal] = useState('')
   const [id, setId] = useState('')
 
-  const onFormSubmit = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
-    e.preventDefault()
+  const { register, handleSubmit, errors } = useForm<{ url: string }>({
+    resolver: yupResolver(schema)
+  })
+
+  const onFormSubmit = handleSubmit(async ({ url }) => {
     setLoading(true)
-    const createdId = await createOneByUrl(inputVal)
+    const createdId = await createOneByUrl(url)
     setId(createdId)
     setLoading(false)
+  })
+
+  const baseFormStyles: SxStyleProp = {
+    width: '100%',
+    borderRadius: 100,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    bg: 'background',
+    boxSizing: 'border-box',
+    border: '3px solid',
+    borderColor: typeof errors.url !== 'undefined' ? '#e8505b' : 'transparent',
+    transition: 'border-color 0.2s ease-out'
   }
 
   return (
@@ -81,15 +93,16 @@ export const Form: React.FC = () => {
               pr: 1,
               py: 1
             }}
+            noValidate={true}
           >
             <div sx={InputWrapper}>
               <FiPaperclip sx={{ opacity: 0.5, fontSize: [0, 0, 1] }} />
               <input
                 sx={Input}
                 type="url"
+                name="url"
                 placeholder="Paste your url here..."
-                value={inputVal}
-                onChange={(e) => setInputVal(e.target.value)}
+                ref={register}
               />
             </div>
             <button sx={{ ...Button, ...buttonShadow }} type="submit">
@@ -97,6 +110,20 @@ export const Form: React.FC = () => {
             </button>
           </form>
         </Box>
+        {typeof errors.url !== 'undefined' && (
+          <p
+            sx={{
+              color: '#e8505b',
+              pl: [4, 4, 6],
+              pt: 3,
+              display: 'flex',
+              alignItems: 'center',
+              fontSize: [0, 0, 1]
+            }}
+          >
+            <FiAlertTriangle sx={{ mr: 1 }} /> {errors.url?.message}
+          </p>
+        )}
       </Col>
       <Card url={id === '' ? undefined : window.location.href + id} />
     </Row>

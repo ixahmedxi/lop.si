@@ -6,8 +6,8 @@
 
 - [ x ] Responsive design
 - [ x ] SEO
+- [ x ] Firebase security rules
 - [ ] Testing
-- [ ] Firebase security rules
 
 ## License
 
