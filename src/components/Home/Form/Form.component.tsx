@@ -12,7 +12,13 @@ import * as yup from 'yup'
 import { Card } from '../Card/Card.component'
 
 const schema = yup.object().shape({
-  url: yup.string().required().url()
+  url: yup
+    .string()
+    .required()
+    .url()
+    .test('is-not-shortened', "Url can't be of an already shortened one", (value: string) =>
+      value.includes(window.location.hostname)
+    )
 })
 
 const InputWrapper: SxStyleProp = {
