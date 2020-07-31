@@ -1,13 +1,11 @@
 /* @jsx jsx */
 import { findOneById } from '@utils/firebase'
 import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import Container from 'react-bootstrap/Container'
-import { FiFrown } from 'react-icons/fi'
 import { Flex, jsx, Spinner } from 'theme-ui'
 
 const RedirectComponent: React.FC = () => {
-  const [status, setStatus] = useState('redirecting')
   const router = useRouter()
   const { id } = router.query
 
@@ -21,7 +19,7 @@ const RedirectComponent: React.FC = () => {
             window.location.href = url
           })
         } else {
-          setStatus('error')
+          await router.push('/404')
         }
       }
     }
@@ -33,14 +31,9 @@ const RedirectComponent: React.FC = () => {
     <Container sx={{ display: 'grid', placeItems: 'start center', height: '100%', pt: 12 }}>
       <div>
         <Flex sx={{ justifyContent: 'center', pb: 3 }}>
-          {status === 'redirecting' && <Spinner variant="spinner" />}
-          {status === 'error' && <FiFrown size="56px" color="#e84a5f" />}
+          <Spinner variant="spinner" />
         </Flex>
-        <h1 sx={{ fontSize: 3, color: status === 'error' ? '#e84a5f' : 'primary' }}>
-          {status === 'error'
-            ? 'An Error occured, make sure the url is correct'
-            : 'Redirecting to url...'}
-        </h1>
+        <h1 sx={{ fontSize: [2, 2, 3], color: 'primary' }}>Redirecting to url...</h1>
       </div>
     </Container>
   )

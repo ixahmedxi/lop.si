@@ -22,7 +22,13 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
         description="lop.si is a url shortener to transform long and unmanageable urls into short and pretty alternatives"
       />
 
-      <Container sx={{ display: 'grid', gridTemplateRows: '150px 1fr 50px', minHeight: '100vh' }}>
+      <Container
+        sx={{
+          display: 'grid',
+          gridTemplateRows: ['75px 1fr 30px', '75px 1fr 30px', '75px 1fr 30px', '100px 1fr 50px'],
+          minHeight: '100vh'
+        }}
+      >
         <NavBar />
         <Component {...pageProps} />
         <Footer />

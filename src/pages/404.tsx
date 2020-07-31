@@ -2,17 +2,15 @@ import { NextSeo } from 'next-seo'
 import { Box, Flex, SxStyleProp, Text } from 'theme-ui'
 
 const Wrapper: SxStyleProp = {
-  height: '100vh',
-  width: '100%',
-  alignItems: 'center',
-  justifyContent: 'center'
+  justifyContent: 'center',
+  pt: 12
 }
 
 const Emoji: SxStyleProp = { fontSize: [5, 6, 7], textAlign: 'center' }
 
-const Title: SxStyleProp = { color: 'primary', fontSize: [2, 3, 4], textAlign: 'center' }
+const Title: SxStyleProp = { color: 'primary', fontSize: [2, 2, 3], textAlign: 'center', pt: 3 }
 
-const Desc: SxStyleProp = { textAlign: 'center', fontSize: [0, 1, 2], paddingTop: 2 }
+const Desc: SxStyleProp = { textAlign: 'center', fontSize: [1, 1, 2], paddingTop: 2 }
 
 const NotFound: React.FC = () => {
   return (
@@ -29,7 +27,7 @@ const NotFound: React.FC = () => {
             Something isn&#39;t right...
           </Text>
           <Text as="p" sx={Desc}>
-            An Error of 404 Occured
+            404 Not Found
           </Text>
         </Box>
       </Flex>

@@ -8,9 +8,8 @@ import { jsx, SxStyleProp, useColorMode } from 'theme-ui'
 
 const Wrapper: SxStyleProp = {
   display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'space-between',
-  py: 5
+  alignItems: 'flex-end',
+  justifyContent: 'space-between'
 }
 
 const NavItems: SxStyleProp = {
@@ -24,15 +23,15 @@ const NavItems: SxStyleProp = {
 
 const Logo: SxStyleProp = {
   fontFamily: 'heading',
-  fontSize: 3,
+  fontSize: [2, 2, 3],
   color: 'text',
   cursor: 'pointer'
 }
 
 const listItemBaseStyles: SxStyleProp = {
-  width: '50px',
-  height: '50px',
-  borderRadius: '50px',
+  width: [5, 5, 6],
+  height: [5, 5, 6],
+  borderRadius: 50,
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -47,7 +46,7 @@ const Button: SxStyleProp = {
   bg: 'background',
   cursor: 'pointer',
   borderRadius: 100,
-  fontSize: 1,
+  fontSize: [0, 0, 1],
   outline: 'none',
   p: 3
 }

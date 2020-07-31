@@ -23,9 +23,9 @@ export const Card: React.FC<{ url?: string }> = ({ url }) => {
       ...cardShadow
     },
     cardTitle: { fontWeight: 'heading', fontSize: 1, color: 'primary' },
-    cardDescription: { fontSize: 0, pt: 1, lineHeight: 1, opacity: 0.7, pr: 10 },
+    cardDescription: { fontSize: 0, pt: 1, lineHeight: 1, opacity: 0.7 },
     linkRow: {
-      pt: 2,
+      pt: [1, 1, 2],
       alignItems: 'center',
       justifyContent: 'space-between'
     },
@@ -56,7 +56,13 @@ export const Card: React.FC<{ url?: string }> = ({ url }) => {
   }
 
   return (
-    <Col sm={{ span: 4, offset: 4 }} sx={styles.column}>
+    <Col
+      xs={{ span: 10, offset: 1 }}
+      sm={{ span: 8, offset: 2 }}
+      md={{ span: 6, offset: 3 }}
+      lg={{ span: 4, offset: 4 }}
+      sx={styles.column}
+    >
       <Box sx={styles.copiedBox}>
         <Text
           as="p"
@@ -69,16 +75,21 @@ export const Card: React.FC<{ url?: string }> = ({ url }) => {
           <FiCheckSquare sx={{ mr: 1 }} /> Copied to clipboard!
         </Text>
       </Box>
-      <Box sx={{ p: 5 }}>
+      <Box sx={{ p: [4, 4, 5] }}>
         <Text as="h2" sx={styles.cardTitle}>
           Your created short url:
         </Text>
         <Text as="p" sx={styles.cardDescription}>
-          Here&#39;s your newly created short url for you to freely use.
+          Here&#39;s your newly created short url for you to freely use everywhere.
         </Text>
         <Flex sx={styles.linkRow}>
-          <Link href={url} target="_blank" rel="noopener noreferrer" sx={{ color: 'primary' }}>
-            {url}
+          <Link
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            sx={{ color: 'primary', fontSize: 1 }}
+          >
+            {url?.replace('http://', '').replace('https://', '')}
           </Link>
           <button type="button" sx={styles.iconButton} onClick={setCopied}>
             <FiClipboard />

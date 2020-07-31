@@ -5,20 +5,21 @@ import { jsx, SxStyleProp, Text } from 'theme-ui'
 
 const Title: SxStyleProp = {
   color: 'primary',
-  fontSize: 3,
+  fontSize: ['20px', '20px', 3],
   fontWeight: 'heading',
-  pb: 2
+  pb: [2, 2, 3]
 }
 
 const Description: SxStyleProp = {
   lineHeight: 1,
-  opacity: 0.7
+  opacity: 0.7,
+  fontSize: ['11px', '11px', 1]
 }
 
 export const Introduction: React.FC = () => {
   return (
     <Row>
-      <Col sm={{ span: 8, offset: 2 }} sx={{ textAlign: 'center' }}>
+      <Col lg={{ span: 8, offset: 2 }} sx={{ textAlign: 'center' }}>
         <Text as="h1" sx={Title}>
           Create professional looking urls
         </Text>

@@ -1,10 +1,10 @@
 import { FiHeart } from 'react-icons/fi'
-import { Box, Link, Text } from 'theme-ui'
+import { Grid, Link, Text } from 'theme-ui'
 
 export const Footer: React.FC = () => {
   return (
-    <Box sx={{ textAlign: 'center' }}>
-      <Text as="p">
+    <Grid sx={{ textAlign: 'center', placeItems: 'start center' }}>
+      <Text as="p" sx={{ fontSize: [0, 0, 1] }}>
         Made with <FiHeart /> by{' '}
         <Link
           href="https://twitter.com/ixahmedxii"
@@ -15,6 +15,6 @@ export const Footer: React.FC = () => {
           Ahmed Elsakaan
         </Link>
       </Text>
-    </Box>
+    </Grid>
   )
 }
