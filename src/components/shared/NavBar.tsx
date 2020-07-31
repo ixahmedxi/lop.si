@@ -57,7 +57,7 @@ export const NavBar: React.FC = () => {
 
   const toggleMode = (): void => {
     const index = modes.indexOf(mode)
-    const next = modes[(index + 1) % modes.length]
+    const next = modes[(Number(index) + 1) % modes.length]
     setMode(next)
   }
 
