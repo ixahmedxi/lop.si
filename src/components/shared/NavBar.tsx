@@ -35,7 +35,7 @@ const listItemBaseStyles: SxStyleProp = {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  ml: 4,
+  ml: [2, 2, 2, 4],
   cursor: 'pointer',
   overflow: 'hidden'
 }

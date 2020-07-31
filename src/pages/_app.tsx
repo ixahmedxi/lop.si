@@ -19,8 +19,14 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
       <Container
         sx={{
           display: 'grid',
-          gridTemplateRows: ['75px 1fr 30px', '75px 1fr 30px', '75px 1fr 30px', '100px 1fr 50px'],
-          minHeight: '100vh'
+          gridTemplateRows: [
+            '60px auto 75px',
+            '60px auto 75px',
+            '60px auto 75px',
+            '100px auto 100px'
+          ],
+          height: '100vh',
+          maxHeight: '100vh'
         }}
       >
         <NavBar />

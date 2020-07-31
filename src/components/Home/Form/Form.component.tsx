@@ -2,13 +2,12 @@
 import { yupResolver } from '@hookform/resolvers'
 import { useNeuBoxShadow } from '@hooks/useBoxShadow'
 import { createOneByUrl } from '@utils/firebase'
-import Link from 'next/link'
 import { useState } from 'react'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import { useForm } from 'react-hook-form'
 import { FiAlertTriangle, FiArrowRight, FiPaperclip } from 'react-icons/fi'
-import { Box, Flex, jsx, Spinner, SxStyleProp } from 'theme-ui'
+import { Box, jsx, Spinner, SxStyleProp } from 'theme-ui'
 import * as yup from 'yup'
 import { Card } from '../Card/Card.component'
 
@@ -78,6 +77,28 @@ export const Form: React.FC = () => {
 
         return true
       })
+      .test('is-shortener-url', 'Url is already a shortener url', (value: string) => {
+        const shorteners = [
+          'bit.ly',
+          'cutt.ly',
+          'shorturl.at',
+          'rebrandly',
+          'tinyurl',
+          'tiny.cc',
+          'raboninco',
+          'is.gd'
+        ]
+
+        let pass = true
+
+        shorteners.forEach((item) => {
+          if (value.includes(item)) {
+            pass = false
+          }
+        })
+
+        return pass
+      })
   })
 
   const { register, handleSubmit, errors } = useForm<{ url: string }>({
@@ -138,22 +159,6 @@ export const Form: React.FC = () => {
             </button>
           </form>
         </Box>
-        <Flex sx={{ justifyContent: 'center', pt: 4, opacity: 0.7 }}>
-          <p sx={{ fontSize: ['8px', '8px', 0] }}>
-            By using our service you accept our{' '}
-            <Link href="/terms-and-conditions">
-              <a sx={{ color: 'text', textDecoration: 'underline', cursor: 'pointer' }}>
-                Terms & Conditions
-              </a>
-            </Link>{' '}
-            and{' '}
-            <Link href="/privacy-policy">
-              <a sx={{ color: 'text', textDecoration: 'underline', cursor: 'pointer' }}>
-                Privacy Policy
-              </a>
-            </Link>{' '}
-          </p>
-        </Flex>
         {typeof errors.url !== 'undefined' && (
           <p
             sx={{
