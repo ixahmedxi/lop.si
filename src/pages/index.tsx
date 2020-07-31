@@ -34,7 +34,7 @@ const Index: React.FC = () => {
           ]
         }}
         twitter={{
-          cardType: 'summary'
+          cardType: 'summary_large_image'
         }}
       />
       <div sx={{ pt: 6 }}>
