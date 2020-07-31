@@ -17,7 +17,7 @@ const schema = yup.object().shape({
     .required()
     .url()
     .test('is-not-shortened', "Url can't be of an already shortened one", (value: string) =>
-      value.includes(window.location.hostname)
+      value.includes('://lop.si')
     )
 })
 
