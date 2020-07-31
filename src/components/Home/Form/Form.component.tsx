@@ -103,6 +103,7 @@ export const Form: React.FC = () => {
               py: 1
             }}
             noValidate={true}
+            autoComplete="off"
           >
             <div sx={InputWrapper}>
               <FiPaperclip sx={{ opacity: 0.5, fontSize: [0, 0, 1] }} />
