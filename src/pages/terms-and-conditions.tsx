@@ -11,7 +11,8 @@ const TermsAndConditions: React.FC = () => {
         h2: { fontSize: 3, fontWeight: 'heading', mt: 6 },
         h3: { fontSize: 2, fontWeight: 'heading', mt: 6 },
         p: { my: 1 },
-        ul: { pl: [3, 3, 6] }
+        ul: { pl: [3, 3, 6] },
+        a: { color: 'primary', textDecoration: 'underline', fontWeight: 'heading' }
       }}
     >
       <h2>
