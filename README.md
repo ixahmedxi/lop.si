@@ -5,7 +5,7 @@
 ## Task List
 
 - [ x ] Responsive design
-- [ ] SEO
+- [ x ] SEO
 - [ ] Testing
 - [ ] Firebase security rules
 

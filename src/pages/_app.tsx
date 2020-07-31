@@ -18,8 +18,26 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
     <ThemeProvider theme={theme}>
       <GlobalStyles />
       <DefaultSeo
-        title="lop.si - A simple url shortener"
+        title="lop.si - A simple neumorphic url shortener"
         description="lop.si is a url shortener to transform long and unmanageable urls into short and pretty alternatives"
+        openGraph={{
+          url: 'https://lop.si',
+          title: 'lop.si - A simple neumorphic url shortener',
+          description:
+            'lop.si is a url shortener to transform long and unmanageable urls into short and pretty alternatives',
+          site_name: 'lop.si',
+          images: [
+            {
+              url: '/assets/image-1.jpg',
+              width: 800,
+              height: 600,
+              alt: 'Og Image'
+            }
+          ]
+        }}
+        twitter={{
+          cardType: 'summary'
+        }}
       />
 
       <Container
