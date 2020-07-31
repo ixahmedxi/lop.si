@@ -5,8 +5,6 @@ import { SxStyleProp, useColorMode } from 'theme-ui'
 export const useNeuBoxShadow = (offset: number, spread: number): SxStyleProp => {
   const [mode] = useColorMode()
 
-  console.log(mode)
-
   const darkAmount = mode === 'dark' ? 0.05 : 0.15
   const lightAmount = mode === 'dark' ? 0.025 : 0.4
 
