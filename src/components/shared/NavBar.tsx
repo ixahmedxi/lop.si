@@ -2,6 +2,7 @@
 
 import { useNeuBoxShadow } from '@hooks/useBoxShadow'
 import { modes } from '@theme'
+import Link from 'next/link'
 import { FiGithub, FiMoon, FiSun } from 'react-icons/fi'
 import { jsx, SxStyleProp, useColorMode } from 'theme-ui'
 
@@ -23,7 +24,9 @@ const NavItems: SxStyleProp = {
 
 const Logo: SxStyleProp = {
   fontFamily: 'heading',
-  fontSize: 3
+  fontSize: 3,
+  color: 'text',
+  cursor: 'pointer'
 }
 
 const listItemBaseStyles: SxStyleProp = {
@@ -61,7 +64,10 @@ export const NavBar: React.FC = () => {
 
   return (
     <nav sx={Wrapper}>
-      <h1 sx={Logo}>lop.si</h1>
+      <Link href="/">
+        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+        <a sx={Logo}>lop.si</a>
+      </Link>
       <ul sx={NavItems}>
         <li sx={{ ...listItemBaseStyles, ...listShadow }}>
           <button sx={Button} onClick={() => toggleMode()}>
