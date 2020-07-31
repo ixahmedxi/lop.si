@@ -1,5 +1,6 @@
 /* @jsx jsx */
 import { useNeuBoxShadow } from '@hooks/useBoxShadow'
+import { createOneByUrl } from '@utils/firebase'
 import { FormEvent, useState } from 'react'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
@@ -32,6 +33,7 @@ const Input: SxStyleProp = {
   color: 'text',
   pl: 3,
   py: 3,
+  mr: 3,
   outline: 'none',
   '::placeholder': {
     color: 'text',
@@ -55,13 +57,15 @@ export const Form: React.FC = () => {
   const formShadow = useNeuBoxShadow(10, 20)
   const buttonShadow = useNeuBoxShadow(5, 10)
   const [loading, setLoading] = useState(false)
+  const [inputVal, setInputVal] = useState('')
+  const [id, setId] = useState('')
 
-  const onFormSubmit = (e: FormEvent<HTMLFormElement>): void => {
+  const onFormSubmit = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault()
     setLoading(true)
-    setTimeout(() => {
-      setLoading(false)
-    }, 1000)
+    const createdId = await createOneByUrl(inputVal)
+    setId(createdId)
+    setLoading(false)
   }
 
   return (
@@ -81,7 +85,13 @@ export const Form: React.FC = () => {
           >
             <div sx={InputWrapper}>
               <FiPaperclip sx={{ opacity: 0.5 }} />
-              <input sx={Input} type="url" placeholder="Paste your url here..." />
+              <input
+                sx={Input}
+                type="url"
+                placeholder="Paste your url here..."
+                value={inputVal}
+                onChange={(e) => setInputVal(e.target.value)}
+              />
             </div>
             <button sx={{ ...Button, ...buttonShadow }} type="submit">
               {loading ? <Spinner variant="styles.spinner" size={24} /> : <FiArrowRight />}
@@ -89,7 +99,7 @@ export const Form: React.FC = () => {
           </form>
         </Box>
       </Col>
-      <Card />
+      <Card url={id === '' ? undefined : window.location.href + id} />
     </Row>
   )
 }
