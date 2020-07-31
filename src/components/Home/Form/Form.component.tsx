@@ -12,18 +12,6 @@ import { Box, Flex, jsx, Spinner, SxStyleProp } from 'theme-ui'
 import * as yup from 'yup'
 import { Card } from '../Card/Card.component'
 
-const schema = yup.object().shape({
-  url: yup
-    .string()
-    .required()
-    .url()
-    .test(
-      'is-short',
-      'Url has already been shortened',
-      (value: string) => !value.includes('://lop.si')
-    )
-})
-
 const InputWrapper: SxStyleProp = {
   display: 'flex',
   alignItems: 'center',
@@ -63,6 +51,35 @@ export const Form: React.FC = () => {
   const [loading, setLoading] = useState(false)
   const [id, setId] = useState('')
 
+  const schema = yup.object().shape({
+    url: yup
+      .string()
+      .required()
+      .url()
+      .test(
+        'is-short',
+        'Url has already been shortened',
+        (value: string) => !value.includes('://lop.si')
+      )
+      .test('is-last-url', 'Url has already been shortened', (value: string) => {
+        const lastUrl = window.localStorage.getItem('last-url')
+
+        if (typeof lastUrl === 'undefined') {
+          return true
+        }
+
+        if (lastUrl === value) {
+          return false
+        }
+
+        if (value === window.location.hostname + id) {
+          return false
+        }
+
+        return true
+      })
+  })
+
   const { register, handleSubmit, errors } = useForm<{ url: string }>({
     resolver: yupResolver(schema)
   })
@@ -70,6 +87,7 @@ export const Form: React.FC = () => {
   const onFormSubmit = handleSubmit(async ({ url }) => {
     setLoading(true)
     const createdId = await createOneByUrl(url)
+    window.localStorage.setItem('last-url', url)
     setId(createdId)
     setLoading(false)
   })

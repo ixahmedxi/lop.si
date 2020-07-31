@@ -13,17 +13,19 @@ export const credentials = {
   measurementId: 'G-8JCGQPRQ2B'
 }
 
+let db: firebase.firestore.CollectionReference<firebase.firestore.DocumentData>
+
 export const init = (): void => {
   // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions, unicorn/explicit-length-check
   if (typeof window !== 'undefined' && !firebase.apps.length) {
     firebase.initializeApp(credentials)
+    db = firebase.firestore().collection('urls')
   }
 }
 
 export const findOneById = async (
   id: string
 ): Promise<firebase.firestore.DocumentData | undefined> => {
-  const db = firebase.firestore().collection('urls')
   const record = await db.where('id', '==', id).limit(1).get()
 
   if (record.empty) {
@@ -34,7 +36,6 @@ export const findOneById = async (
 }
 
 export const createOneByUrl = async (url: string): Promise<string> => {
-  const db = firebase.firestore().collection('urls')
   const nanoid = customAlphabet('abcdefghijklmnopqrstuvwxyz', 4)
   const id = await nanoid()
 
