@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@emotion/core": "^10.0.28",
+    "@hapi/joi": "^17.1.1",
     "@hookform/resolvers": "^0.1.0",
     "@theme-ui/color": "^0.3.1",
     "dotenv": "^8.2.0",
@@ -30,12 +31,14 @@
     "react-hook-form": "^6.2.0",
     "react-icons": "^3.10.0",
     "react-use-clipboard": "^1.0.0",
+    "superstruct": "^0.10.12",
     "theme-ui": "^0.3.1",
     "yup": "^0.29.2"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.11.0",
     "@testing-library/react": "^10.4.3",
+    "@types/hapi__joi": "^17.1.4",
     "@types/jest": "^26.0.0",
     "@types/mongoose": "^5.7.32",
     "@types/node": "^14.0.13",
