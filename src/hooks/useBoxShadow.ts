@@ -5,8 +5,10 @@ import { SxStyleProp, useColorMode } from 'theme-ui'
 export const useNeuBoxShadow = (offset: number, spread: number): SxStyleProp => {
   const [mode] = useColorMode()
 
-  const darkAmount = typeof window !== 'undefined' && mode === 'dark' ? 0.05 : 0.15
-  const lightAmount = typeof window !== 'undefined' && mode === 'dark' ? 0.025 : 0.4
+  console.log(mode)
+
+  const darkAmount = mode === 'dark' ? 0.05 : 0.15
+  const lightAmount = mode === 'dark' ? 0.025 : 0.4
 
   const darkColour = (theme: ThemeType): string =>
     darken(theme.colors.background, darkAmount)() as string
@@ -15,10 +17,12 @@ export const useNeuBoxShadow = (offset: number, spread: number): SxStyleProp => 
 
   return {
     boxShadow: (theme) =>
-      `-${String(offset) + 'px'} -${String(offset) + 'px'} ${String(spread) + 'px'} ${lightColour(
-        theme
-      )}, ${String(offset) + 'px'} ${String(offset) + 'px'} ${String(spread) + 'px'} ${darkColour(
-        theme
-      )}`
+      mode !== 'default'
+        ? `-${String(offset) + 'px'} -${String(offset) + 'px'} ${
+            String(spread) + 'px'
+          } ${lightColour(theme)}, ${String(offset) + 'px'} ${String(offset) + 'px'} ${
+            String(spread) + 'px'
+          } ${darkColour(theme)}`
+        : 'none'
   }
 }
