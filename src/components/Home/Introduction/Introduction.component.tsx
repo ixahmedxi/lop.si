@@ -12,7 +12,6 @@ const Title: SxStyleProp = {
 
 const Description: SxStyleProp = {
   lineHeight: 1,
-  opacity: 0.7,
   fontSize: [0, 0, 1]
 }
 

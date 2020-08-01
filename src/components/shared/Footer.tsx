@@ -5,7 +5,7 @@ import { Flex, Grid, jsx, Link as ThemeLink, Text } from 'theme-ui'
 
 export const Footer: React.FC = () => {
   return (
-    <Grid sx={{ textAlign: 'center', placeItems: 'center center', opacity: 0.7 }}>
+    <Grid sx={{ textAlign: 'center', placeItems: 'center center' }}>
       <div>
         <Text as="p" sx={{ fontSize: [0, 0, 1] }}>
           Made with <FiHeart /> by{' '}
