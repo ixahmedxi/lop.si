@@ -16,7 +16,7 @@ export default class extends Document {
 
   render(): JSX.Element {
     return (
-      <Html>
+      <Html lang="en">
         <Head>
           <link
             href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap-grid.min.css"
