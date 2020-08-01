@@ -69,7 +69,7 @@ export const NavBar: React.FC = () => {
       </Link>
       <ul sx={NavItems}>
         <li sx={{ ...listItemBaseStyles, ...listShadow }}>
-          <button sx={Button} onClick={() => toggleMode()}>
+          <button sx={Button} onClick={() => toggleMode()} aria-label="toggle the current theme">
             {mode === 'dark' ? <FiSun /> : <FiMoon />}
           </button>
         </li>
@@ -79,6 +79,7 @@ export const NavBar: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
             sx={Button}
+            aria-label="go to github repo"
           >
             <FiGithub />
           </a>

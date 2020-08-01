@@ -14,6 +14,7 @@ export const Footer: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
             sx={{ color: 'primary' }}
+            aria-label="visit my twitter profile"
           >
             Ahmed Elsakaan
           </ThemeLink>
@@ -22,13 +23,19 @@ export const Footer: React.FC = () => {
           <p sx={{ fontSize: ['8px', '8px', 0] }}>
             By using our service you accept our{' '}
             <Link href="/terms-and-conditions">
-              <a sx={{ color: 'text', textDecoration: 'underline', cursor: 'pointer' }}>
+              <a
+                sx={{ color: 'text', textDecoration: 'underline', cursor: 'pointer' }}
+                aria-label="terms and conditions page"
+              >
                 Terms & Conditions
               </a>
             </Link>{' '}
             and{' '}
             <Link href="/privacy-policy">
-              <a sx={{ color: 'text', textDecoration: 'underline', cursor: 'pointer' }}>
+              <a
+                sx={{ color: 'text', textDecoration: 'underline', cursor: 'pointer' }}
+                aria-label="privacy policy page"
+              >
                 Privacy Policy
               </a>
             </Link>{' '}

@@ -14,18 +14,23 @@ import { Card } from '../Card/Card.component'
 const InputWrapper: SxStyleProp = {
   display: 'flex',
   alignItems: 'center',
-  flex: 1
+  justifyContent: 'space-between',
+  flex: 1,
+  width: '100%',
+  height: '100%'
 }
 
 const Input: SxStyleProp = {
-  flex: 1,
-  bg: 'background',
+  bg: 'transparent',
   border: 'none',
   fontSize: [0, 0, 1],
   color: 'text',
-  pl: [2, 2, 3],
-  mr: [2, 2, 3],
+  px: [2, 2, 3],
+  height: '100%',
+  width: '100%',
+  display: 'block',
   outline: 'none',
+  position: 'relative',
   '::placeholder': {
     color: 'text',
     opacity: 0.5
@@ -101,7 +106,7 @@ export const Form: React.FC = () => {
       })
   })
 
-  const { register, handleSubmit, errors } = useForm<{ url: string }>({
+  const { register, handleSubmit, errors, getValues } = useForm<{ url: string }>({
     resolver: yupResolver(schema)
   })
 
@@ -113,6 +118,18 @@ export const Form: React.FC = () => {
     setLoading(false)
   })
 
+  const [formFocus, setFormFocus] = useState(false)
+
+  const setBorderColor = (): string => {
+    if (typeof errors.url !== 'undefined') {
+      return '#e8505b'
+    }
+    if (formFocus) {
+      return 'primary'
+    }
+    return 'transparent'
+  }
+
   const baseFormStyles: SxStyleProp = {
     width: '100%',
     borderRadius: 100,
@@ -122,8 +139,21 @@ export const Form: React.FC = () => {
     bg: 'background',
     boxSizing: 'border-box',
     border: '3px solid',
-    borderColor: typeof errors.url !== 'undefined' ? '#e8505b' : 'transparent',
+    borderColor: setBorderColor(),
     transition: 'border-color 0.2s ease-out'
+  }
+
+  const setLabelFocus = (): SxStyleProp => {
+    if (formFocus) {
+      return {
+        top: '-12px',
+        transform: 'scale(0.80)',
+        color: 'primary',
+        opacity: 1,
+        bg: 'background'
+      }
+    }
+    return {}
   }
 
   return (
@@ -136,25 +166,59 @@ export const Form: React.FC = () => {
               width: '100%',
               display: 'flex',
               alignItems: 'center',
-              justifyContent: 'space-between',
               pl: [4, 4, 6],
-              pr: 1,
-              py: 1
+              pr: '3px',
+              height: 7
             }}
             noValidate={true}
             autoComplete="off"
           >
             <div sx={InputWrapper}>
               <FiPaperclip sx={{ opacity: 0.5, fontSize: [0, 0, 1] }} />
-              <input
-                sx={Input}
-                type="url"
-                name="url"
-                placeholder="Paste your url here..."
-                ref={register}
-              />
+              <div sx={{ position: 'relative', width: '100%', height: '100%' }}>
+                <input
+                  sx={Input}
+                  type="url"
+                  id="url"
+                  name="url"
+                  ref={register}
+                  onFocus={() => setFormFocus(true)}
+                  onBlur={() => {
+                    if (getValues('url') !== '') {
+                      setFormFocus(true)
+                    } else {
+                      setFormFocus(false)
+                    }
+                  }}
+                />
+                <label
+                  htmlFor="url"
+                  sx={{
+                    position: 'absolute',
+                    left: [1, 1, 2],
+                    opacity: 0.7,
+                    top: '26%',
+                    fontSize: 1,
+                    color: 'text',
+                    transition: '0.2s ease-out',
+                    cursor: 'text',
+                    bg: 'transparent',
+                    py: '3px',
+                    borderRadius: '3px',
+                    px: 1,
+                    transformOrigin: '0px 50%',
+                    ...setLabelFocus()
+                  }}
+                >
+                  Paste your url here...
+                </label>
+              </div>
             </div>
-            <button sx={{ ...Button, ...buttonShadow }} type="submit">
+            <button
+              sx={{ ...Button, ...buttonShadow }}
+              type="submit"
+              aria-label="create a short url"
+            >
               {loading ? <Spinner variant="styles.spinner" size={24} /> : <FiArrowRight />}
             </button>
           </form>

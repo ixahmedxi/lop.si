@@ -91,7 +91,12 @@ export const Card: React.FC<{ url?: string }> = ({ url }) => {
           >
             {url?.replace('http://', '').replace('https://', '')}
           </Link>
-          <button type="button" sx={styles.iconButton} onClick={setCopied}>
+          <button
+            type="button"
+            sx={styles.iconButton}
+            onClick={setCopied}
+            aria-label="copy to clipboard"
+          >
             <FiClipboard />
           </button>
         </Flex>
