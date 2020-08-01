@@ -5,7 +5,7 @@ import { Flex, Grid, jsx, Link as ThemeLink, Text } from 'theme-ui'
 
 export const Footer: React.FC = () => {
   return (
-    <Grid sx={{ textAlign: 'center', placeItems: 'center center' }}>
+    <Grid sx={{ textAlign: 'center', placeItems: 'center center', opacity: 0.7 }}>
       <div>
         <Text as="p" sx={{ fontSize: [0, 0, 1] }}>
           Made with <FiHeart /> by{' '}
@@ -19,8 +19,8 @@ export const Footer: React.FC = () => {
             Ahmed Elsakaan
           </ThemeLink>
         </Text>
-        <Flex sx={{ justifyContent: 'center', opacity: 0.7, pt: [1, 1, 1, 2] }}>
-          <p sx={{ fontSize: ['8px', '8px', 0] }}>
+        <Flex sx={{ justifyContent: 'center', pt: [1, 1, 1, 2] }}>
+          <p sx={{ fontSize: 0 }}>
             By using our service you accept our{' '}
             <Link href="/terms-and-conditions">
               <a

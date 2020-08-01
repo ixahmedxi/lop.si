@@ -13,7 +13,7 @@ const Title: SxStyleProp = {
 const Description: SxStyleProp = {
   lineHeight: 1,
   opacity: 0.7,
-  fontSize: ['11px', '11px', 1]
+  fontSize: [0, 0, 1]
 }
 
 export const Introduction: React.FC = () => {
@@ -24,8 +24,8 @@ export const Introduction: React.FC = () => {
           Create professional looking urls
         </Text>
         <Text as="p" sx={Description}>
-          lop.si helps you transform these long, unmanageable and ugly urls into short alternatives
-          that look professional when used in emails and such.
+          lop.si helps you transform long and unmanageable urls into short alternatives that look
+          more professional wherever used.
         </Text>
       </Col>
     </Row>
