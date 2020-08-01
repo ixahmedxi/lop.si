@@ -168,7 +168,7 @@ export const Form: React.FC = () => {
               alignItems: 'center',
               pl: [4, 4, 6],
               pr: '3px',
-              height: 7
+              height: [6, 6, 7]
             }}
             noValidate={true}
             autoComplete="off"
@@ -197,7 +197,7 @@ export const Form: React.FC = () => {
                     position: 'absolute',
                     left: [1, 1, 2],
                     opacity: 0.7,
-                    top: '26%',
+                    top: ['20%', '20%', '26%'],
                     fontSize: 1,
                     color: 'text',
                     transition: '0.2s ease-out',
