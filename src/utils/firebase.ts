@@ -41,7 +41,8 @@ export const createOneByUrl = async (url: string): Promise<string> => {
 
   await db.add({
     id,
-    url
+    url,
+    createdAt: firebase.firestore.FieldValue.serverTimestamp()
   })
 
   return id
