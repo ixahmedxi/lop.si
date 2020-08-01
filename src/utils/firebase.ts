@@ -1,3 +1,4 @@
+import 'firebase/analytics'
 import firebase from 'firebase/app'
 import 'firebase/firestore'
 import { customAlphabet } from 'nanoid/async'
@@ -19,6 +20,7 @@ export const init = (): void => {
   // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions, unicorn/explicit-length-check
   if (typeof window !== 'undefined' && !firebase.apps.length) {
     firebase.initializeApp(credentials)
+    firebase.analytics()
     db = firebase.firestore().collection('urls')
   }
 }
