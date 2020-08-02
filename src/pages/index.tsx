@@ -1,16 +1,7 @@
 /* @jsx jsx */
+import Home from '@components/Home/Home'
 import { NextSeo } from 'next-seo'
-import dynamic from 'next/dynamic'
-import { Flex, jsx, Spinner } from 'theme-ui'
-
-const DynamicHome = dynamic(async () => await import('../components/Home/Home'), {
-  // eslint-disable-next-line react/display-name
-  loading: () => (
-    <Flex sx={{ justifyContent: 'center' }}>
-      <Spinner variant="spinner" />
-    </Flex>
-  )
-})
+import { jsx } from 'theme-ui'
 
 const Index: React.FC = () => {
   return (
@@ -38,7 +29,7 @@ const Index: React.FC = () => {
         }}
       />
       <div sx={{ pt: 6 }}>
-        <DynamicHome />
+        <Home />
       </div>
     </>
   )

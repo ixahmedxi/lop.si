@@ -1,13 +1,17 @@
 /* @jsx jsx */
-import Col from 'react-bootstrap/Col'
-import Row from 'react-bootstrap/Row'
-import { jsx, SxStyleProp, Text } from 'theme-ui'
+import { Box, jsx, SxStyleProp, Text } from 'theme-ui'
+
+const Wrapper: SxStyleProp = {
+  margin: '0 auto',
+  width: ['100%', '100%', '100%', '70%'],
+  textAlign: 'center'
+}
 
 const Title: SxStyleProp = {
   color: 'primary',
   fontSize: ['20px', '20px', 3],
   fontWeight: 'heading',
-  pb: [2, 2, 3]
+  pb: [1, 1, 2]
 }
 
 const Description: SxStyleProp = {
@@ -17,16 +21,14 @@ const Description: SxStyleProp = {
 
 export const Introduction: React.FC = () => {
   return (
-    <Row>
-      <Col lg={{ span: 8, offset: 2 }} sx={{ textAlign: 'center' }}>
-        <Text as="h1" sx={Title}>
-          Create professional looking urls
-        </Text>
-        <Text as="p" sx={Description}>
-          lop.si helps you transform long and unmanageable urls into short alternatives that look
-          more professional wherever used.
-        </Text>
-      </Col>
-    </Row>
+    <Box sx={Wrapper}>
+      <Text as="h1" sx={Title}>
+        Create professional looking urls
+      </Text>
+      <Text as="p" sx={Description}>
+        lop.si helps you transform long and unmanageable urls into short alternatives that look more
+        professional wherever used.
+      </Text>
+    </Box>
   )
 }

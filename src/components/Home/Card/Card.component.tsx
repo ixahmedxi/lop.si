@@ -1,14 +1,18 @@
 /* @jsx jsx */
 import { useNeuBoxShadow } from '@hooks/useBoxShadow'
+import { useContext } from 'react'
 import Col from 'react-bootstrap/Col'
 import { FiCheckSquare, FiClipboard } from 'react-icons/fi'
 import useClipboard from 'react-use-clipboard'
 import { Box, Flex, jsx, Link, SxStyleProp, Text } from 'theme-ui'
+import { HomeContext } from '../Home.context'
 
-export const Card: React.FC<{ url?: string }> = ({ url }) => {
+export const Card: React.FC = () => {
+  const { id } = useContext(HomeContext)
+  const url = typeof window !== 'undefined' ? window.location.host + '/' + id : id
   const cardShadow = useNeuBoxShadow(10, 20)
   const iconButtonShadow = useNeuBoxShadow(3, 6)
-  const [isCopied, setCopied] = useClipboard(url ?? '', { successDuration: 2000 })
+  const [isCopied, setCopied] = useClipboard(url, { successDuration: 2000 })
 
   const styles: SxStyleProp = {
     column: {
@@ -19,7 +23,7 @@ export const Card: React.FC<{ url?: string }> = ({ url }) => {
       position: 'relative',
       mt: 11,
       opacity: 1,
-      display: typeof url === 'string' ? 'inline-block' : 'none',
+      display: id !== '' ? 'inline-block' : 'none',
       ...cardShadow
     },
     cardTitle: { fontWeight: 'heading', fontSize: 1, color: 'primary' },
@@ -89,7 +93,7 @@ export const Card: React.FC<{ url?: string }> = ({ url }) => {
             rel="noopener noreferrer"
             sx={{ color: 'primary', fontSize: 1 }}
           >
-            {url?.replace('http://', '').replace('https://', '')}
+            {url.replace('http://', '').replace('https://', '')}
           </Link>
           <button
             type="button"

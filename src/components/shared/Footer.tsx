@@ -19,7 +19,7 @@ export const Footer: React.FC = () => {
             Ahmed Elsakaan
           </ThemeLink>
         </Text>
-        <Flex sx={{ justifyContent: 'center', pt: [1, 1, 1, 2] }}>
+        <Flex sx={{ justifyContent: 'center', pt: 1 }}>
           <p sx={{ fontSize: 0 }}>
             By using our service you accept our{' '}
             <Link href="/terms-and-conditions">

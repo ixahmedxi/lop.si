@@ -2,14 +2,14 @@
 import { yupResolver } from '@hookform/resolvers'
 import { useNeuBoxShadow } from '@hooks/useBoxShadow'
 import { createOneByUrl } from '@utils/firebase'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import { useForm } from 'react-hook-form'
 import { FiAlertTriangle, FiArrowRight, FiPaperclip } from 'react-icons/fi'
 import { Box, jsx, Spinner, SxStyleProp } from 'theme-ui'
 import * as yup from 'yup'
-import { Card } from '../Card/Card.component'
+import { HomeContext } from '../Home.context'
 
 const InputWrapper: SxStyleProp = {
   display: 'flex',
@@ -53,7 +53,7 @@ export const Form: React.FC = () => {
   const formShadow = useNeuBoxShadow(10, 20)
   const buttonShadow = useNeuBoxShadow(5, 10)
   const [loading, setLoading] = useState(false)
-  const [id, setId] = useState('')
+  const { id, setId } = useContext(HomeContext)
 
   const schema = yup.object().shape({
     url: yup
@@ -238,7 +238,6 @@ export const Form: React.FC = () => {
           </p>
         )}
       </Col>
-      <Card url={id === '' ? undefined : window.location.href + id} />
     </Row>
   )
 }

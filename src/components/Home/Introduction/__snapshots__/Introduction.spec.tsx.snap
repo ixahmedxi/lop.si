@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Introduction Component matches snapshot 1`] = `
+.emotion-2 {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+}
+
+@media screen and (min-width:576px) {
+  .emotion-2 {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width:768px) {
+  .emotion-2 {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width:992px) {
+  .emotion-2 {
+    width: 70%;
+  }
+}
+
+.emotion-0 {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  color: var(--theme-ui-colors-primary,#8093f2);
+  font-size: 20px;
+  font-weight: 700;
+  padding-bottom: 8px;
+}
+
+@media screen and (min-width:576px) {
+  .emotion-0 {
+    font-size: 20px;
+    padding-bottom: 8px;
+  }
+}
+
+@media screen and (min-width:768px) {
+  .emotion-0 {
+    font-size: 32px;
+    padding-bottom: 16px;
+  }
+}
+
+.emotion-1 {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  line-height: 1.8;
+  font-size: 12px;
+}
+
+@media screen and (min-width:576px) {
+  .emotion-1 {
+    font-size: 12px;
+  }
+}
+
+@media screen and (min-width:768px) {
+  .emotion-1 {
+    font-size: 16px;
+  }
+}
+
+<div>
+  <div
+    class="emotion-2"
+  >
+    <h1
+      class="emotion-0"
+    >
+      Create professional looking urls
+    </h1>
+    <p
+      class="emotion-1"
+    >
+      lop.si helps you transform long and unmanageable urls into short alternatives that look more professional wherever used.
+    </p>
+  </div>
+</div>
+`;
