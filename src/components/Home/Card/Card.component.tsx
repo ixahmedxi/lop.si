@@ -1,10 +1,11 @@
 /* @jsx jsx */
 import { useNeuBoxShadow } from '@hooks/useBoxShadow'
+import Link from 'next/link'
 import { useContext } from 'react'
 import Col from 'react-bootstrap/Col'
 import { FiCheckSquare, FiClipboard } from 'react-icons/fi'
 import useClipboard from 'react-use-clipboard'
-import { Box, Flex, jsx, Link, SxStyleProp, Text } from 'theme-ui'
+import { Box, Flex, jsx, SxStyleProp, Text } from 'theme-ui'
 import { HomeContext } from '../Home.context'
 
 export const Card: React.FC = () => {
@@ -87,13 +88,12 @@ export const Card: React.FC = () => {
           Here&#39;s your newly created short url for you to freely use everywhere.
         </Text>
         <Flex sx={styles.linkRow}>
-          <Link
-            href={url}
-            target="_blank"
-            rel="noopener noreferrer"
-            sx={{ color: 'primary', fontSize: 1 }}
-          >
-            {url.replace('http://', '').replace('https://', '')}
+          <Link href={'/' + id}>
+            <a
+              sx={{ color: 'primary', fontSize: 1, textDecoration: 'underline', cursor: 'pointer' }}
+            >
+              {url.replace('http://', '').replace('https://', '')}
+            </a>
           </Link>
           <button
             type="button"
