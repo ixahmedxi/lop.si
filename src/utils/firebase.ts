@@ -1,5 +1,6 @@
 import 'firebase/analytics'
 import firebase from 'firebase/app'
+import 'firebase/auth'
 import 'firebase/firestore'
 import { customAlphabet } from 'nanoid/async'
 
@@ -28,16 +29,20 @@ export const init = (): void => {
 export const findOneById = async (
   id: string
 ): Promise<firebase.firestore.DocumentData | undefined> => {
+  await firebase.auth().signInAnonymously()
   const record = await db.where('id', '==', id).limit(1).get()
 
   if (record.empty) {
     return
   }
 
+  await firebase.auth().signOut()
+
   return record
 }
 
 export const createOneByUrl = async (url: string): Promise<string> => {
+  await firebase.auth().signInAnonymously()
   const nanoid = customAlphabet('abcdefghijklmnopqrstuvwxyz', 4)
   const id = await nanoid()
 
@@ -46,6 +51,8 @@ export const createOneByUrl = async (url: string): Promise<string> => {
     url,
     createdAt: firebase.firestore.FieldValue.serverTimestamp()
   })
+
+  await firebase.auth().signOut()
 
   return id
 }

@@ -60,6 +60,10 @@ export const Card: React.FC = () => {
     }
   }
 
+  if (id === '') {
+    return null
+  }
+
   return (
     <Col
       xs={{ span: 10, offset: 1 }}
