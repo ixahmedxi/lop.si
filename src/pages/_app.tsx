@@ -4,15 +4,22 @@ import { GlobalStyles } from '@shared/GlobalStyles'
 import { NavBar } from '@shared/NavBar'
 import { init } from '@utils/firebase'
 import { AppProps } from 'next/app'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import Container from 'react-bootstrap/Container'
 import { jsx, ThemeProvider } from 'theme-ui'
 import { theme } from '../theme'
 
 const App: React.FC<AppProps> = ({ Component, pageProps }) => {
+  const [appHeight, setAppHeight] = useState('100vh')
   useEffect(() => {
     init()
-  })
+    if (typeof window !== 'undefined') {
+      setAppHeight(String(window.innerHeight) + 'px')
+      window.addEventListener('resize', () => {
+        setAppHeight(String(window.innerHeight) + 'px')
+      })
+    }
+  }, [])
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
@@ -25,10 +32,7 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
             '60px auto 75px',
             '100px auto 100px'
           ],
-          height: '100vh'
-        }}
-        css={{
-          minHeight: ['100vh', '-webkit-fill-available']
+          minHeight: appHeight
         }}
       >
         <NavBar />

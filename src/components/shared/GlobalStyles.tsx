@@ -13,15 +13,6 @@ export const GlobalStyles: React.FC = () => {
           padding: 0;
         }
 
-        body {
-          min-height: 100vh;
-          min-height: -webkit-fill-available;
-        }
-
-        html {
-          height: -webkit-fill-available;
-        }
-
         h1,
         h2,
         h3,
