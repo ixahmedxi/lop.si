@@ -25,8 +25,10 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
             '60px auto 75px',
             '100px auto 100px'
           ],
-          height: '100vh',
-          maxHeight: '100vh'
+          height: '100vh'
+        }}
+        css={{
+          minHeight: ['100vh', '-webkit-fill-available']
         }}
       >
         <NavBar />
