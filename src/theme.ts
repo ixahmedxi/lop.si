@@ -41,7 +41,7 @@ export const theme = makeTheme({
       bg: 'background'
     },
     spinner: {
-      color: 'white'
+      color: 'background'
     }
   },
   fontSizes: [12, 16, 24, 32, 40, 48, 56, 64],
