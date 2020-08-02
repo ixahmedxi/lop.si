@@ -22,6 +22,13 @@ export const init = (): void => {
   if (typeof window !== 'undefined' && !firebase.apps.length) {
     firebase.initializeApp(credentials)
     firebase.analytics()
+    firebase
+      .auth()
+      .signInAnonymously()
+      .then((user) => console.log(user.user?.uid))
+      .catch((error) => {
+        console.error(error.message)
+      })
     db = firebase.firestore().collection('urls')
   }
 }
@@ -29,20 +36,16 @@ export const init = (): void => {
 export const findOneById = async (
   id: string
 ): Promise<firebase.firestore.DocumentData | undefined> => {
-  await firebase.auth().signInAnonymously()
   const record = await db.where('id', '==', id).limit(1).get()
 
   if (record.empty) {
     return
   }
 
-  await firebase.auth().signOut()
-
   return record
 }
 
 export const createOneByUrl = async (url: string): Promise<string> => {
-  await firebase.auth().signInAnonymously()
   const nanoid = customAlphabet('abcdefghijklmnopqrstuvwxyz', 4)
   const id = await nanoid()
 
@@ -51,8 +54,6 @@ export const createOneByUrl = async (url: string): Promise<string> => {
     url,
     createdAt: firebase.firestore.FieldValue.serverTimestamp()
   })
-
-  await firebase.auth().signOut()
 
   return id
 }
