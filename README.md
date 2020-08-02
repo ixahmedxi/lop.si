@@ -1,13 +1,19 @@
-# Lop.si
+# Lop.si ✨
 
-> A simple url shortener made with next.js and firebase
+> A simple neumorphic url shortener made with Next.js, ThemeUI, Firebase and wirtten in TypeScript.
 
-## Task List
+## Introduction
 
-- [ x ] Responsive design
-- [ x ] SEO
-- [ x ] Firebase security rules
-- [ ] Testing
+lop.si is a simple url shortner that is built on neumorphism, its sole objective is to provide a quick and easy way to generate really short urls to be used instead of long ones. The project is fully open source, free to use and ad free. It uses [next-boilerpack](https://github.com/ixahmedxi/next-boilerpack) as the boilerplate for the project and firebase for the server side operations and database.
+
+## Future Plans
+
+Contributions are very welcome, I do have some future plans for the project but if you would like to contribute to the project to help make these plans become reality feel free to do so, till now the current future plans for the project are as follows. If a contribution consists of new or updated UI elements please make sure they follow the neumorphic guide and that they do not clutter the webpage.
+
+* Refactor components to make them more manageable and organised.
+* Add tests for the components to ensure they work as they are supposed to.
+* Add authentication to allow the ability for the user to manage their created urls.
+* Add the ability for the user to see analytics info about their created urls such as view counts.
 
 ## License
 
