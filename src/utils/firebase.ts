@@ -1,6 +1,5 @@
 import 'firebase/analytics'
 import firebase from 'firebase/app'
-import 'firebase/auth'
 import 'firebase/firestore'
 import { customAlphabet } from 'nanoid/async'
 
@@ -22,13 +21,6 @@ export const init = (): void => {
   if (typeof window !== 'undefined' && !firebase.apps.length) {
     firebase.initializeApp(credentials)
     firebase.analytics()
-    firebase
-      .auth()
-      .signInAnonymously()
-      .then((user) => console.log(user.user?.uid))
-      .catch((error) => {
-        console.error(error.message)
-      })
     db = firebase.firestore().collection('urls')
   }
 }
