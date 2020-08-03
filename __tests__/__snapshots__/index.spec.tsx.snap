@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Home Page matches snapshot 1`] = `
-.emotion-22 {
+.emotion-8 {
   padding-top: 48px;
 }
 
@@ -76,42 +76,41 @@ exports[`Home Page matches snapshot 1`] = `
   }
 }
 
-.emotion-11 {
+.emotion-7 {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  width: 100%;
+  margin: 0 auto;
   padding-top: 24px;
 }
 
 @media screen and (min-width:576px) {
-  .emotion-11 {
+  .emotion-7 {
+    width: 100%;
     padding-top: 24px;
   }
 }
 
 @media screen and (min-width:768px) {
-  .emotion-11 {
+  .emotion-7 {
+    width: 100%;
     padding-top: 40px;
   }
 }
 
-.emotion-10 {
-  box-sizing: border-box;
-  margin: 0;
-  min-width: 0;
-  width: 100%;
+@media screen and (min-width:992px) {
+  .emotion-7 {
+    width: 70%;
+  }
+}
+
+.emotion-6 {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  place-items: center;
   border-radius: 100px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  background-color: var(--theme-ui-colors-background,#2B2D32);
-  box-sizing: border-box;
+  padding: 4px;
   border: 3px solid;
   border-color: transparent;
   -webkit-transition: border-color 0.2s ease-out;
@@ -119,105 +118,61 @@ exports[`Home Page matches snapshot 1`] = `
   box-shadow: none;
 }
 
-.emotion-9 {
-  width: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  padding-left: 32px;
-  padding-right: 3px;
-  height: 48px;
-}
-
-@media screen and (min-width:576px) {
-  .emotion-9 {
-    padding-left: 32px;
-    height: 48px;
-  }
-}
-
-@media screen and (min-width:768px) {
-  .emotion-9 {
-    padding-left: 48px;
-    height: 56px;
-  }
-}
-
-.emotion-7 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  width: 100%;
-  height: 100%;
-}
-
 .emotion-3 {
-  opacity: 0.5;
   font-size: 12px;
+  opacity: 0.5;
+  margin-left: 24px;
 }
 
 @media screen and (min-width:576px) {
   .emotion-3 {
     font-size: 12px;
+    margin-left: 24px;
   }
 }
 
 @media screen and (min-width:768px) {
   .emotion-3 {
     font-size: 16px;
+    margin-left: 40px;
   }
-}
-
-.emotion-6 {
-  position: relative;
-  width: 100%;
-  height: 100%;
 }
 
 .emotion-4 {
-  background-color: transparent;
-  border: none;
-  font-size: 12px;
-  color: var(--theme-ui-colors-text,#EEEEEE);
-  padding-left: 16px;
-  padding-right: 16px;
-  height: 100%;
-  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
   display: block;
+  width: 100%;
+  padding: 16px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  font-size: inherit;
+  line-height: inherit;
+  border: 1px solid;
+  border-radius: 4px;
+  color: inherit;
+  background-color: transparent;
   outline: none;
-  position: relative;
+  border: none;
+  padding-left: 24px;
+  padding-right: 24px;
+  height: 40px;
+  font-size: 12px;
 }
 
 @media screen and (min-width:576px) {
   .emotion-4 {
+    height: 40px;
     font-size: 12px;
-    padding-left: 16px;
-    padding-right: 16px;
   }
 }
 
 @media screen and (min-width:768px) {
   .emotion-4 {
+    height: 48px;
     font-size: 16px;
-    padding-left: 24px;
-    padding-right: 24px;
   }
 }
 
@@ -242,43 +197,6 @@ exports[`Home Page matches snapshot 1`] = `
 }
 
 .emotion-5 {
-  position: absolute;
-  left: 8px;
-  opacity: 0.7;
-  top: 30%;
-  font-size: 12px;
-  color: var(--theme-ui-colors-text,#EEEEEE);
-  -webkit-transition: 0.2s ease-out;
-  transition: 0.2s ease-out;
-  cursor: text;
-  background-color: transparent;
-  padding-top: 3px;
-  padding-bottom: 3px;
-  border-radius: 3px;
-  padding-left: 8px;
-  padding-right: 8px;
-  -webkit-transform-origin: 0px 50%;
-  -ms-transform-origin: 0px 50%;
-  transform-origin: 0px 50%;
-}
-
-@media screen and (min-width:576px) {
-  .emotion-5 {
-    left: 8px;
-    top: 20%;
-    font-size: 12px;
-  }
-}
-
-@media screen and (min-width:768px) {
-  .emotion-5 {
-    left: 16px;
-    top: 26%;
-    font-size: 16px;
-  }
-}
-
-.emotion-8 {
   height: 40px;
   width: 40px;
   outline: none;
@@ -287,174 +205,42 @@ exports[`Home Page matches snapshot 1`] = `
   background-color: var(--theme-ui-colors-primary,#8093f2);
   color: var(--theme-ui-colors-background,#2B2D32);
   border-radius: 100px;
+  padding: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   cursor: pointer;
   box-shadow: none;
 }
 
 @media screen and (min-width:576px) {
-  .emotion-8 {
+  .emotion-5 {
     height: 40px;
     width: 40px;
+    font-size: 16px;
   }
 }
 
 @media screen and (min-width:768px) {
-  .emotion-8 {
+  .emotion-5 {
     height: 48px;
     width: 48px;
+    font-size: 20px;
   }
-}
-
-.emotion-21 {
-  background-color: var(--theme-ui-colors-background,#2B2D32);
-  border-radius: 20px;
-  padding: 0;
-  overflow: hidden;
-  position: relative;
-  margin-top: 88px;
-  opacity: 1;
-  display: none;
-  box-shadow: none;
-}
-
-.emotion-14 {
-  box-sizing: border-box;
-  margin: 0;
-  min-width: 0;
-  width: 100%;
-  background-color: var(--theme-ui-colors-primary,#8093f2);
-  color: var(--theme-ui-colors-background,#2B2D32);
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  text-align: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  height: 0;
-  -webkit-transition: 0.2s ease-out;
-  transition: 0.2s ease-out;
-}
-
-.emotion-13 {
-  box-sizing: border-box;
-  margin: 0;
-  min-width: 0;
-  display: none;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-}
-
-.emotion-12 {
-  margin-right: 8px;
-}
-
-.emotion-20 {
-  box-sizing: border-box;
-  margin: 0;
-  min-width: 0;
-  padding: 32px;
-}
-
-@media screen and (min-width:576px) {
-  .emotion-20 {
-    padding: 32px;
-  }
-}
-
-@media screen and (min-width:768px) {
-  .emotion-20 {
-    padding: 40px;
-  }
-}
-
-.emotion-15 {
-  box-sizing: border-box;
-  margin: 0;
-  min-width: 0;
-  font-weight: 700;
-  font-size: 16px;
-  color: var(--theme-ui-colors-primary,#8093f2);
-}
-
-.emotion-16 {
-  box-sizing: border-box;
-  margin: 0;
-  min-width: 0;
-  font-size: 12px;
-  padding-top: 8px;
-  line-height: 1.8;
-  opacity: 0.7;
-}
-
-.emotion-19 {
-  box-sizing: border-box;
-  margin: 0;
-  min-width: 0;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  padding-top: 8px;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-}
-
-@media screen and (min-width:576px) {
-  .emotion-19 {
-    padding-top: 8px;
-  }
-}
-
-@media screen and (min-width:768px) {
-  .emotion-19 {
-    padding-top: 16px;
-  }
-}
-
-.emotion-17 {
-  box-sizing: border-box;
-  margin: 0;
-  min-width: 0;
-  color: var(--theme-ui-colors-primary,#8093f2);
-  font-size: 16px;
-}
-
-.emotion-18 {
-  box-shadow: none;
-  width: 40px;
-  height: 40px;
-  border-radius: 50px;
-  border: none;
-  background-color: var(--theme-ui-colors-background,#2B2D32);
-  color: var(--theme-ui-colors-primary,#8093f2);
-  cursor: pointer;
-  outline: none;
 }
 
 <div>
   <div
-    class="emotion-22"
+    class="emotion-8"
   >
     <div
       class="emotion-2"
@@ -471,97 +257,41 @@ exports[`Home Page matches snapshot 1`] = `
       </p>
     </div>
     <div
-      class="emotion-11 row"
+      class="emotion-7"
     >
-      <div
-        class="col-lg-8 offset-lg-2"
+      <form
+        autocomplete="off"
+        class="emotion-6"
+        novalidate=""
       >
-        <div
-          class="emotion-10"
+        <svg
+          class="emotion-3"
+          fill="none"
+          height="1em"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <form
-            autocomplete="off"
-            class="emotion-9"
-            novalidate=""
-          >
-            <div
-              class="emotion-7"
-            >
-              <svg
-                class="emotion-3"
-                fill="none"
-                height="1em"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"
-                />
-              </svg>
-              <div
-                class="emotion-6"
-              >
-                <input
-                  class="emotion-4"
-                  id="url"
-                  name="url"
-                  type="url"
-                />
-                <label
-                  class="emotion-5"
-                  for="url"
-                >
-                  Paste your url here...
-                </label>
-              </div>
-            </div>
-            <button
-              aria-label="create a short url"
-              class="emotion-8"
-              type="submit"
-            >
-              <svg
-                fill="none"
-                height="1em"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <line
-                  x1="5"
-                  x2="19"
-                  y1="12"
-                  y2="12"
-                />
-                <polyline
-                  points="12 5 19 12 12 19"
-                />
-              </svg>
-            </button>
-          </form>
-        </div>
-      </div>
-    </div>
-    <div
-      class="emotion-21 col-lg-4 col-md-6 col-sm-8 col-10 offset-lg-4 offset-md-3 offset-sm-2 offset-1"
-    >
-      <div
-        class="emotion-14"
-      >
-        <p
-          class="emotion-13"
+          <path
+            d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"
+          />
+        </svg>
+        <input
+          class="emotion-4"
+          name="url"
+          placeholder="Paste your url here..."
+          type="url"
+        />
+        <button
+          aria-label="create a short url"
+          class="emotion-5"
+          type="submit"
         >
           <svg
-            class="emotion-12"
             fill="none"
             height="1em"
             stroke="currentColor"
@@ -572,71 +302,18 @@ exports[`Home Page matches snapshot 1`] = `
             width="1em"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <polyline
-              points="9 11 12 14 22 4"
+            <line
+              x1="5"
+              x2="19"
+              y1="12"
+              y2="12"
             />
-            <path
-              d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"
+            <polyline
+              points="12 5 19 12 12 19"
             />
           </svg>
-           Copied to clipboard!
-        </p>
-      </div>
-      <div
-        class="emotion-20"
-      >
-        <h2
-          class="emotion-15"
-        >
-          Your created short url:
-        </h2>
-        <p
-          class="emotion-16"
-        >
-          Here's your newly created short url for you to freely use everywhere.
-        </p>
-        <div
-          class="emotion-19"
-        >
-          <a
-            class="emotion-17"
-            href="localhost/"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            localhost/
-          </a>
-          <button
-            aria-label="copy to clipboard"
-            class="emotion-18"
-            type="button"
-          >
-            <svg
-              fill="none"
-              height="1em"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              viewBox="0 0 24 24"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
-              />
-              <rect
-                height="4"
-                rx="1"
-                ry="1"
-                width="8"
-                x="8"
-                y="2"
-              />
-            </svg>
-          </button>
-        </div>
-      </div>
+        </button>
+      </form>
     </div>
   </div>
 </div>
