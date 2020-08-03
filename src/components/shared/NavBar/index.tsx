@@ -23,8 +23,9 @@ export const NavBar: React.FC = () => {
       fontSize: 2
     },
     button: {
-      display: 'grid',
-      placeItems: 'center',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
       width: [5, 5, 6],
       height: [5, 5, 6],
       borderRadius: 100,
