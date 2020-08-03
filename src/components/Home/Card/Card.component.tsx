@@ -1,14 +1,13 @@
 /* @jsx jsx */
+import { useHomeContext } from '@contexts/Home'
 import { useNeuBoxShadow } from '@hooks/useBoxShadow'
 import Link from 'next/link'
-import { useContext } from 'react'
 import { FiCheckSquare, FiClipboard } from 'react-icons/fi'
 import useClipboard from 'react-use-clipboard'
 import { Box, Flex, jsx, SxStyleProp, Text } from 'theme-ui'
-import { HomeContext } from '../Home.context'
 
 export const Card: React.FC = () => {
-  const { id } = useContext(HomeContext)
+  const { id } = useHomeContext()
   const url = typeof window !== 'undefined' ? window.location.host + '/' + id : id
   const cardShadow = useNeuBoxShadow(10, 20)
   const iconButtonShadow = useNeuBoxShadow(3, 6)

@@ -1,18 +1,19 @@
 /* @jsx jsx */
+import { useFirestore } from '@contexts/Firebase'
+import { useHomeContext } from '@contexts/Home'
 import { yupResolver } from '@hookform/resolvers'
 import { useNeuBoxShadow } from '@hooks/useBoxShadow'
-import { createOneByUrl } from '@utils/firebase'
-import { useContext, useState } from 'react'
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { FiPaperclip } from 'react-icons/fi'
 import { Box, Input, jsx, SxStyleProp } from 'theme-ui'
-import { HomeContext } from '../Home.context'
 import { FormErrors } from './FormErrors/FormErrors.component'
 import { schema } from './schema'
 import { SubmitButton } from './SubmitButton/SubmitButton.component'
 
 export const Form: React.FC = () => {
-  const { setId } = useContext(HomeContext)
+  const { setId } = useHomeContext()
+  const { createOneUrl } = useFirestore()
   const [isLoading, setIsLoading] = useState(false)
   const { register, handleSubmit, errors, reset } = useForm<{ url: string }>({
     resolver: yupResolver(schema)
@@ -55,9 +56,9 @@ export const Form: React.FC = () => {
 
   const onFormSubmit = handleSubmit(async ({ url }) => {
     setIsLoading(true)
-    const createdId = await createOneByUrl(url)
+    const createdId = await createOneUrl(url)
     window.localStorage.setItem('last-url', url)
-    setId(createdId)
+    setId(String(createdId))
     setIsLoading(false)
     reset()
   })

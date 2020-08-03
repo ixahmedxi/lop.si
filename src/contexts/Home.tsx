@@ -1,4 +1,4 @@
-import { createContext, Dispatch, SetStateAction, useState } from 'react'
+import { createContext, Dispatch, SetStateAction, useContext, useState } from 'react'
 
 interface IHomeContext {
   id: string
@@ -14,3 +14,5 @@ export const HomeProvider: React.FC = ({ children }) => {
   const [id, setId] = useState('')
   return <HomeContext.Provider value={{ id, setId }}>{children}</HomeContext.Provider>
 }
+
+export const useHomeContext = (): IHomeContext => useContext(HomeContext)
