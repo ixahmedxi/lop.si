@@ -1,13 +1,13 @@
 /* @jsx jsx */
 import Link from 'next/link'
 import { FiHeart } from 'react-icons/fi'
-import { Flex, Grid, jsx, Link as ThemeLink, Text } from 'theme-ui'
+import { Box, Flex, Grid, jsx, Link as ThemeLink, Text } from 'theme-ui'
 
 export const Footer: React.FC = () => {
   return (
     <Grid sx={{ textAlign: 'center', placeItems: 'center center' }}>
-      <div>
-        <Text as="p" sx={{ fontSize: [0, 0, 1] }}>
+      <Box>
+        <Text as="p" sx={{ fontSize: [0, 0, 1], m: 0, p: 0 }}>
           Made with <FiHeart /> by{' '}
           <ThemeLink
             href="https://twitter.com/ixahmedxii"
@@ -20,7 +20,7 @@ export const Footer: React.FC = () => {
           </ThemeLink>
         </Text>
         <Flex sx={{ justifyContent: 'center', pt: 1 }}>
-          <p sx={{ fontSize: 0 }}>
+          <p sx={{ fontSize: 0, m: 0, p: 0 }}>
             By using our service you accept our{' '}
             <Link href="/terms-and-conditions">
               <a
@@ -41,7 +41,7 @@ export const Footer: React.FC = () => {
             </Link>{' '}
           </p>
         </Flex>
-      </div>
+      </Box>
     </Grid>
   )
 }

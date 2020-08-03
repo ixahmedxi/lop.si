@@ -1,16 +1,15 @@
-/* @jsx jsx */
+import { Container } from '@shared/Container'
 import { Footer } from '@shared/Footer'
-import { GlobalStyles } from '@shared/GlobalStyles'
 import { NavBar } from '@shared/NavBar'
 import { init } from '@utils/firebase'
 import { AppProps } from 'next/app'
 import { useEffect, useState } from 'react'
-import Container from 'react-bootstrap/Container'
-import { jsx, ThemeProvider } from 'theme-ui'
+import { ThemeProvider } from 'theme-ui'
 import { theme } from '../theme'
 
 const App: React.FC<AppProps> = ({ Component, pageProps }) => {
   const [appHeight, setAppHeight] = useState('100vh')
+
   useEffect(() => {
     init()
     if (typeof window !== 'undefined') {
@@ -20,16 +19,16 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
       })
     }
   }, [])
+
   return (
     <ThemeProvider theme={theme}>
-      <GlobalStyles />
       <Container
-        sx={{
+        styles={{
           display: 'grid',
           gridTemplateRows: [
-            '60px auto 75px',
-            '60px auto 75px',
-            '60px auto 75px',
+            '65px auto 75px',
+            '65px auto 75px',
+            '75px auto 75px',
             '100px auto 100px'
           ],
           minHeight: appHeight

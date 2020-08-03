@@ -10,10 +10,14 @@ export const SubmitButton: React.FC<{ isLoading: boolean }> = ({ isLoading }) =>
       width: [5, 5, 6],
       outline: 'none',
       border: 'none',
-      fontSize: 1,
+      fontSize: [1, 1, '20px'],
       bg: 'primary',
       color: 'background',
       borderRadius: 100,
+      p: 0,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
       cursor: 'pointer',
       ...useNeuBoxShadow(5, 10)
     }

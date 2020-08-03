@@ -2,7 +2,6 @@
 import { useNeuBoxShadow } from '@hooks/useBoxShadow'
 import Link from 'next/link'
 import { useContext } from 'react'
-import Col from 'react-bootstrap/Col'
 import { FiCheckSquare, FiClipboard } from 'react-icons/fi'
 import useClipboard from 'react-use-clipboard'
 import { Box, Flex, jsx, SxStyleProp, Text } from 'theme-ui'
@@ -17,14 +16,13 @@ export const Card: React.FC = () => {
 
   const styles: SxStyleProp = {
     column: {
-      bg: 'background',
       borderRadius: 20,
-      p: 0,
       overflow: 'hidden',
-      position: 'relative',
       mt: 11,
       opacity: 1,
-      display: id !== '' ? 'inline-block' : 'none',
+      display: id !== '' ? 'block' : 'none',
+      mx: 'auto',
+      width: [`${1000 / 12}%`, `${800 / 12}%`, `${600 / 12}%`, `${400 / 12}%`],
       ...cardShadow
     },
     cardTitle: { fontWeight: 'heading', fontSize: 1, color: 'primary' },
@@ -65,13 +63,7 @@ export const Card: React.FC = () => {
   }
 
   return (
-    <Col
-      xs={{ span: 10, offset: 1 }}
-      sm={{ span: 8, offset: 2 }}
-      md={{ span: 6, offset: 3 }}
-      lg={{ span: 4, offset: 4 }}
-      sx={styles.column}
-    >
+    <Box sx={styles.column}>
       <Box sx={styles.copiedBox}>
         <Text
           as="p"
@@ -109,6 +101,6 @@ export const Card: React.FC = () => {
           </button>
         </Flex>
       </Box>
-    </Col>
+    </Box>
   )
 }

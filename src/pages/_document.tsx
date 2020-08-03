@@ -19,10 +19,6 @@ export default class extends Document {
       <Html lang="en">
         <Head>
           <link
-            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap-grid.min.css"
-            rel="stylesheet"
-          />
-          <link
             href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Pacifico&display=swap"
             rel="stylesheet"
           />

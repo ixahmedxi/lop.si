@@ -1,8 +1,8 @@
 /* @jsx jsx */
+import { Container } from '@shared/Container'
 import { findOneById } from '@utils/firebase'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
-import Container from 'react-bootstrap/Container'
 import { Flex, jsx, Spinner } from 'theme-ui'
 
 const RedirectComponent: React.FC = () => {
@@ -28,7 +28,7 @@ const RedirectComponent: React.FC = () => {
   })
 
   return (
-    <Container sx={{ display: 'grid', placeItems: 'start center', height: '100%', pt: 12 }}>
+    <Container styles={{ display: 'grid', placeItems: 'start center', height: '100%', pt: 12 }}>
       <div>
         <Flex sx={{ justifyContent: 'center', pb: 3 }}>
           <Spinner variant="spinner" />
