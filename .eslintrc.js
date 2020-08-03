@@ -71,5 +71,6 @@ module.exports = {
     'jest/expect-expect': 0,
 
     '@typescript-eslint/no-unsafe-member-access': 0
-  }
+  },
+  ignorePatterns: ['**/*.js', 'next-env.d.ts']
 }

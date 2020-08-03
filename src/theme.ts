@@ -4,7 +4,6 @@ const makeTheme = <T extends Theme>(t: T): T => t
 
 const darkGray = '#2B2D32'
 const lightGray = '#EEEEEE'
-
 const primary = '#8093f2'
 
 export const theme = makeTheme({
