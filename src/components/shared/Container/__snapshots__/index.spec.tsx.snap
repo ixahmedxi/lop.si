@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container component matches snapshot 1`] = `
+.emotion-0 {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  width: 100%;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+@media screen and (min-width:576px) {
+  .emotion-0 {
+    max-width: 540px;
+  }
+}
+
+@media screen and (min-width:768px) {
+  .emotion-0 {
+    max-width: 720px;
+  }
+}
+
+@media screen and (min-width:992px) {
+  .emotion-0 {
+    max-width: 960px;
+  }
+}
+
+@media screen and (min-width:1200px) {
+  .emotion-0 {
+    max-width: 1140px;
+  }
+}
+
+<div>
+  <div
+    class="emotion-0"
+  />
+</div>
+`;

@@ -25,12 +25,7 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
         <Container
           styles={{
             display: 'grid',
-            gridTemplateRows: [
-              '65px auto 75px',
-              '65px auto 75px',
-              '75px auto 75px',
-              '100px auto 100px'
-            ],
+            gridTemplateRows: ['auto 1fr auto', 'auto 1fr auto', 'auto 1fr auto', 'auto 1fr auto'],
             minHeight: appHeight
           }}
         >
