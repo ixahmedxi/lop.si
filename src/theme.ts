@@ -37,7 +37,8 @@ export const theme = makeTheme({
     root: {
       fontFamily: 'body',
       color: 'text',
-      bg: 'background'
+      bg: 'background',
+      transition: 'background-color 0.2s ease-out, color 0.2s ease-out'
     },
     spinner: {
       color: 'background'

@@ -14,6 +14,7 @@ export const useNeuBoxShadow = (offset: number, spread: number): SxStyleProp => 
     lighten(theme.colors.background, lightAmount)() as string
 
   return {
+    transition: 'box-shadow 0.2s ease-out, background-color 0.2s ease-out',
     boxShadow: (theme) =>
       mode !== 'default'
         ? `-${String(offset) + 'px'} -${String(offset) + 'px'} ${

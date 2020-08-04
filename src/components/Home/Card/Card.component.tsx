@@ -38,7 +38,7 @@ export const Card: React.FC = () => {
       height: 5,
       borderRadius: 50,
       border: 'none',
-      bg: 'background',
+      bg: 'transparent',
       color: 'primary',
       cursor: 'pointer',
       outline: 'none'

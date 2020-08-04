@@ -19,7 +19,8 @@ export const SubmitButton: React.FC<{ isLoading: boolean }> = ({ isLoading }) =>
       alignItems: 'center',
       justifyContent: 'center',
       cursor: 'pointer',
-      ...useNeuBoxShadow(5, 10)
+      ...useNeuBoxShadow(5, 10),
+      transition: 'box-shadow 0.2s ease-out, background-color 0.2s ease-out, color 0.2s ease-out'
     }
   }
 

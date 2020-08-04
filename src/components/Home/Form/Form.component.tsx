@@ -44,6 +44,8 @@ export const Form: React.FC = () => {
       }
     },
     icon: {
+      color: 'text',
+      transition: 'color 0.2s ease-out',
       fontSize: [0, 0, 1],
       opacity: 0.5,
       ml: [3, 3, 5]
