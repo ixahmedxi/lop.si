@@ -40,7 +40,8 @@ export const Form: React.FC = () => {
       fontSize: [0, 0, 1],
       '::placeholder': {
         color: 'text',
-        opacity: 0.5
+        opacity: 0.5,
+        transition: 'color 0.2s ease-out'
       }
     },
     icon: {
