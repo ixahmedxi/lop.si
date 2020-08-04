@@ -17,12 +17,10 @@ export const useNeuBoxShadow = (offset: number, spread: number): SxStyleProp => 
 
   // disable transition effect from occuring on page load
   useEffect(() => {
-    const timer = setTimeout(
-      () => setTransition('box-shadow 0.2s ease-out, background-color 0.2s ease-out'),
-      200
-    )
-    return () => clearTimeout(timer)
-  }, [setTransition])
+    if (mode !== 'default') {
+      setTransition('box-shadow 0.2s ease-out, background-color 0.2s ease-out')
+    }
+  }, [setTransition, mode])
 
   return {
     transition,
@@ -33,6 +31,6 @@ export const useNeuBoxShadow = (offset: number, spread: number): SxStyleProp => 
           } ${lightColour(theme)}, ${String(offset) + 'px'} ${String(offset) + 'px'} ${
             String(spread) + 'px'
           } ${darkColour(theme)}`
-        : '-0px -0px 0px transparent, 0px 0px 0px transparent'
+        : 'none'
   }
 }
