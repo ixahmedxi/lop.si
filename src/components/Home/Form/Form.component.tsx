@@ -11,9 +11,8 @@ import { SubmitButton } from './SubmitButton/SubmitButton.component'
 
 export const Form: React.FC = () => {
   const [url, setUrl] = useState('')
-  const [isLoading, setLoading] = useState(false)
   const [errors, setErrors] = useState<string | null>(null)
-  const { setId } = useHomeContext()
+  const { setId, isLoading, setIsLoading } = useHomeContext()
   const { createOneUrl } = useFirestore()
 
   const styles: SxStyleProp = {
@@ -62,19 +61,17 @@ export const Form: React.FC = () => {
       urlToBeSubmitted = 'https://' + url
     }
 
-    console.log(urlToBeSubmitted)
-
     setErrors(null)
 
     await schema
       .validate(urlToBeSubmitted)
       .then(
         async (value): Promise<string> => {
-          setLoading(true)
+          setIsLoading(true)
           const createdId = await createOneUrl(urlToBeSubmitted)
           window.localStorage.setItem('last-url', urlToBeSubmitted)
           setId(String(createdId))
-          setLoading(false)
+          setIsLoading(false)
           return value
         }
       )

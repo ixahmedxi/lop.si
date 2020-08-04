@@ -4,24 +4,25 @@ import { useNeuBoxShadow } from '@hooks/useBoxShadow'
 import Link from 'next/link'
 import { FiCheckSquare, FiClipboard } from 'react-icons/fi'
 import useClipboard from 'react-use-clipboard'
-import { Box, Flex, jsx, SxStyleProp, Text } from 'theme-ui'
+import { Box, Flex, Grid, jsx, Spinner, SxStyleProp, Text } from 'theme-ui'
 
 export const Card: React.FC = () => {
-  const { id } = useHomeContext()
-  const url = typeof window !== 'undefined' ? window.location.host + '/' + id : id
+  const { id, isLoading } = useHomeContext()
   const cardShadow = useNeuBoxShadow(10, 20)
   const iconButtonShadow = useNeuBoxShadow(3, 6)
-  const [isCopied, setCopied] = useClipboard(url, { successDuration: 2000 })
+  const [isCopied, setCopied] = useClipboard('https://lop.si/' + id, { successDuration: 2000 })
 
   const styles: SxStyleProp = {
     column: {
+      width: [`${1000 / 12}%`, `${800 / 12}%`, `${600 / 12}%`, `${400 / 12}%`],
       borderRadius: 20,
       overflow: 'hidden',
       mt: 11,
-      opacity: 1,
-      display: id !== '' ? 'block' : 'none',
+      opacity: id === '' ? 0 : 1,
       mx: 'auto',
-      width: [`${1000 / 12}%`, `${800 / 12}%`, `${600 / 12}%`, `${400 / 12}%`],
+      minHeight: '200px',
+      transition: '0.2s ease-out',
+      position: 'relative',
       ...cardShadow
     },
     cardTitle: { fontWeight: 'heading', fontSize: 1, color: 'primary' },
@@ -57,25 +58,28 @@ export const Card: React.FC = () => {
     }
   }
 
-  if (id === '') {
-    return null
-  }
-
   return (
     <Box sx={styles.column}>
       <Box sx={styles.copiedBox}>
         <Text
           as="p"
           sx={{
-            display: isCopied ? 'flex' : 'none',
+            display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center'
+            justifyContent: 'center',
+            opacity: isCopied ? 1 : 0
           }}
         >
           <FiCheckSquare sx={{ mr: 1 }} /> Copied to clipboard!
         </Text>
       </Box>
-      <Box sx={{ p: [4, 4, 5] }}>
+      <Box
+        sx={{
+          p: [4, 4, 5],
+          opacity: isLoading ? 0 : 1,
+          transition: 'opacity 0.2s ease-out'
+        }}
+      >
         <Text as="h2" sx={styles.cardTitle}>
           Your created short url:
         </Text>
@@ -85,9 +89,14 @@ export const Card: React.FC = () => {
         <Flex sx={styles.linkRow}>
           <Link href={'/' + id}>
             <a
-              sx={{ color: 'primary', fontSize: 1, textDecoration: 'underline', cursor: 'pointer' }}
+              sx={{
+                color: 'primary',
+                fontSize: 1,
+                textDecoration: 'underline',
+                cursor: 'pointer'
+              }}
             >
-              {url.replace('http://', '').replace('https://', '')}
+              {'lop.si/' + id}
             </a>
           </Link>
           <button
@@ -100,6 +109,21 @@ export const Card: React.FC = () => {
           </button>
         </Flex>
       </Box>
+      <Grid
+        sx={{
+          height: '100%',
+          width: '100%',
+          position: 'absolute',
+          left: 0,
+          top: 0,
+          placeItems: 'center',
+          bg: 'background',
+          opacity: !isLoading ? 0 : 1,
+          zIndex: !isLoading ? -1 : 1
+        }}
+      >
+        <Spinner sx={{ color: 'primary' }} size={48} />
+      </Grid>
     </Box>
   )
 }
