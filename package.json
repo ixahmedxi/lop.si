@@ -14,7 +14,6 @@
     "test:cov": "jest --coverage"
   },
   "dependencies": {
-    "@hookform/resolvers": "^0.1.0",
     "@theme-ui/color": "^0.3.1",
     "firebase": "^7.17.1",
     "nanoid": "^3.1.10",
@@ -22,7 +21,6 @@
     "next-seo": "^4.7.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-hook-form": "^6.2.0",
     "react-icons": "^3.10.0",
     "react-use-clipboard": "^1.0.0",
     "theme-ui": "^0.3.1",

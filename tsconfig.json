@@ -25,7 +25,8 @@
       "@hooks/*": ["src/hooks/*"],
       "@theme": ["src/theme.ts"],
       "@utils/*": ["src/utils/*"],
-      "@contexts/*": ["src/contexts/*"]
+      "@contexts/*": ["src/contexts/*"],
+      "@pages/*": ["src/pages/*"]
     }
   },
   "exclude": ["node_modules"],

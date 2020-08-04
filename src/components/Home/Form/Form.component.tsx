@@ -1,10 +1,8 @@
 /* @jsx jsx */
 import { useFirestore } from '@contexts/Firebase'
 import { useHomeContext } from '@contexts/Home'
-import { yupResolver } from '@hookform/resolvers'
 import { useNeuBoxShadow } from '@hooks/useBoxShadow'
-import { useState } from 'react'
-import { useForm } from 'react-hook-form'
+import { FormEvent, useState } from 'react'
 import { FiPaperclip } from 'react-icons/fi'
 import { Box, Input, jsx, SxStyleProp } from 'theme-ui'
 import { FormErrors } from './FormErrors/FormErrors.component'
@@ -12,12 +10,11 @@ import { schema } from './schema'
 import { SubmitButton } from './SubmitButton/SubmitButton.component'
 
 export const Form: React.FC = () => {
+  const [url, setUrl] = useState('')
+  const [isLoading, setLoading] = useState(false)
+  const [errors, setErrors] = useState<string | null>(null)
   const { setId } = useHomeContext()
   const { createOneUrl } = useFirestore()
-  const [isLoading, setIsLoading] = useState(false)
-  const { register, handleSubmit, errors, reset } = useForm<{ url: string }>({
-    resolver: yupResolver(schema)
-  })
 
   const styles: SxStyleProp = {
     wrapper: {
@@ -32,7 +29,7 @@ export const Form: React.FC = () => {
       borderRadius: 100,
       p: '4px',
       border: '3px solid',
-      borderColor: typeof errors.url !== 'undefined' ? '#e8505b' : 'transparent',
+      borderColor: errors !== null ? '#e8505b' : 'transparent',
       transition: 'border-color 0.2s ease-out',
       ...useNeuBoxShadow(10, 20)
     },
@@ -54,14 +51,33 @@ export const Form: React.FC = () => {
     }
   }
 
-  const onFormSubmit = handleSubmit(async ({ url }) => {
-    setIsLoading(true)
-    const createdId = await createOneUrl(url)
-    window.localStorage.setItem('last-url', url)
-    setId(String(createdId))
-    setIsLoading(false)
-    reset()
-  })
+  const onFormSubmit = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
+    e.preventDefault()
+
+    let urlToBeSubmitted = url
+
+    if (!urlToBeSubmitted.includes('https://') || !urlToBeSubmitted.includes('http://')) {
+      urlToBeSubmitted = 'https://' + urlToBeSubmitted
+    }
+
+    setErrors(null)
+
+    await schema
+      .validate(urlToBeSubmitted)
+      .then(
+        async (value): Promise<string> => {
+          setLoading(true)
+          const createdId = await createOneUrl(urlToBeSubmitted)
+          window.localStorage.setItem('last-url', urlToBeSubmitted)
+          setId(String(createdId))
+          setLoading(false)
+          return value
+        }
+      )
+      .catch((error) => {
+        setErrors(error.errors[0])
+      })
+  }
 
   return (
     <Box sx={styles.wrapper}>
@@ -72,7 +88,8 @@ export const Form: React.FC = () => {
           name="url"
           sx={styles.input}
           placeholder="Paste your url here..."
-          ref={register}
+          value={url}
+          onChange={(e) => setUrl(e.target.value)}
         />
         <SubmitButton isLoading={isLoading} />
       </form>

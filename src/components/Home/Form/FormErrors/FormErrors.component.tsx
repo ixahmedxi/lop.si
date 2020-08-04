@@ -1,15 +1,8 @@
-import { FieldError } from 'react-hook-form'
-import { DeepMap } from 'react-hook-form/dist/types/utils'
 import { FiAlertTriangle } from 'react-icons/fi'
 import { SxStyleProp, Text } from 'theme-ui'
 
 interface PropTypes {
-  errors: DeepMap<
-    {
-      url: string
-    },
-    FieldError
-  >
+  errors: string | null
 }
 
 const styles: SxStyleProp = {
@@ -27,14 +20,14 @@ const styles: SxStyleProp = {
 }
 
 export const FormErrors: React.FC<PropTypes> = ({ errors }) => {
-  if (typeof errors.url === 'undefined') {
+  if (errors === null) {
     return null
   }
 
   return (
     <Text as="p" sx={styles.text}>
       <FiAlertTriangle />
-      {errors.url?.message}
+      {errors}
     </Text>
   )
 }
