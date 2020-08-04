@@ -4,7 +4,7 @@ import { useNeuBoxShadow } from '@hooks/useBoxShadow'
 import Link from 'next/link'
 import { FiCheckSquare, FiClipboard } from 'react-icons/fi'
 import useClipboard from 'react-use-clipboard'
-import { Box, Flex, Grid, jsx, Spinner, SxStyleProp, Text } from 'theme-ui'
+import { Box, Flex, jsx, Spinner, SxStyleProp, Text } from 'theme-ui'
 
 export const Card: React.FC = () => {
   const { id, isLoading } = useHomeContext()
@@ -109,21 +109,24 @@ export const Card: React.FC = () => {
           </button>
         </Flex>
       </Box>
-      <Grid
+      <Flex
         sx={{
+          borderRadius: 20,
           height: '100%',
           width: '100%',
           position: 'absolute',
           left: 0,
           top: 0,
-          placeItems: 'center',
+          alignItems: 'center',
+          justifyContent: 'center',
           bg: 'background',
           opacity: !isLoading ? 0 : 1,
-          zIndex: !isLoading ? -1 : 1
+          zIndex: !isLoading ? -1 : 1,
+          transition: 'opacity 0.2s ease-out'
         }}
       >
         <Spinner sx={{ color: 'primary' }} size={48} />
-      </Grid>
+      </Flex>
     </Box>
   )
 }
