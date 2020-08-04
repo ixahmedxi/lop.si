@@ -1,9 +1,11 @@
 import { ThemeType } from '@theme'
 import { darken, lighten } from '@theme-ui/color'
+import { useEffect, useState } from 'react'
 import { SxStyleProp, useColorMode } from 'theme-ui'
 
 export const useNeuBoxShadow = (offset: number, spread: number): SxStyleProp => {
   const [mode] = useColorMode()
+  const [transition, setTransition] = useState('none')
 
   const darkAmount = mode === 'dark' ? 0.05 : 0.15
   const lightAmount = mode === 'dark' ? 0.025 : 0.4
@@ -13,8 +15,17 @@ export const useNeuBoxShadow = (offset: number, spread: number): SxStyleProp => 
   const lightColour = (theme: ThemeType): string =>
     lighten(theme.colors.background, lightAmount)() as string
 
+  // disable transition effect from occuring on page load
+  useEffect(() => {
+    const timer = setTimeout(
+      () => setTransition('box-shadow 0.2s ease-out, background-color 0.2s ease-out'),
+      200
+    )
+    return () => clearTimeout(timer)
+  }, [setTransition])
+
   return {
-    transition: 'box-shadow 0.2s ease-out, background-color 0.2s ease-out',
+    transition,
     boxShadow: (theme) =>
       mode !== 'default'
         ? `-${String(offset) + 'px'} -${String(offset) + 'px'} ${
@@ -22,6 +33,6 @@ export const useNeuBoxShadow = (offset: number, spread: number): SxStyleProp => 
           } ${lightColour(theme)}, ${String(offset) + 'px'} ${String(offset) + 'px'} ${
             String(spread) + 'px'
           } ${darkColour(theme)}`
-        : 'none'
+        : '-0px -0px 0px transparent, 0px 0px 0px transparent'
   }
 }
