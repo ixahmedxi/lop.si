@@ -54,11 +54,15 @@ export const Form: React.FC = () => {
   const onFormSubmit = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault()
 
-    let urlToBeSubmitted = url
+    let urlToBeSubmitted: string
 
-    if (!urlToBeSubmitted.includes('https://') || !urlToBeSubmitted.includes('http://')) {
-      urlToBeSubmitted = 'https://' + urlToBeSubmitted
+    if (url.includes('https://') || url.includes('http://')) {
+      urlToBeSubmitted = url
+    } else {
+      urlToBeSubmitted = 'https://' + url
     }
+
+    console.log(urlToBeSubmitted)
 
     setErrors(null)
 
