@@ -8,14 +8,15 @@ const blacklist = [
   'tinyurl',
   'tiny.cc',
   'raboninco',
-  'is.gd'
+  'is.gd',
+  'lop.si'
 ]
 
 export const schema = yup
   .string()
   .required()
   .url()
-  .test('is-short', 'Url cannot be a short url', (value: string) => !value.includes('://lop.si'))
+  .test('is-short', 'Url cannot be a short url', (value: string) => !value.includes('lop.si/'))
   .test('is-last-url', 'Url has been recently shortened', (value: string) => {
     const lastUrl = window.localStorage.getItem('last-url')
     return !(lastUrl === value)

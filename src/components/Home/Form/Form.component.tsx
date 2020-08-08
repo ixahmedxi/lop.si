@@ -53,8 +53,10 @@ export const Form: React.FC = () => {
     }
   }
 
-  const onFormSubmit = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
+  const onFormSubmit = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault()
+    setErrors(null)
+    setIsLoading(true)
 
     let urlToBeSubmitted: string
 
@@ -64,22 +66,21 @@ export const Form: React.FC = () => {
       urlToBeSubmitted = 'https://' + url
     }
 
-    setErrors(null)
-
-    await schema
+    schema
       .validate(urlToBeSubmitted)
-      .then(
-        async (value): Promise<string> => {
-          setIsLoading(true)
-          const createdId = await createOneUrl(urlToBeSubmitted)
-          window.localStorage.setItem('last-url', urlToBeSubmitted)
-          setId(String(createdId))
-          setIsLoading(false)
-          return value
-        }
-      )
+      .then((res) => {
+        createOneUrl(urlToBeSubmitted)
+          ?.then((createdId) => {
+            window.localStorage.setItem('last-url', urlToBeSubmitted)
+            setId(String(createdId))
+            setIsLoading(false)
+          })
+          .catch((error) => setErrors(String(error)))
+        return res
+      })
       .catch((error) => {
-        setErrors(error.errors[0])
+        setErrors(String(error))
+        setIsLoading(false)
       })
   }
 
