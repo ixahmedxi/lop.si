@@ -19,7 +19,7 @@ export const Form: React.FC = () => {
     wrapper: {
       width: ['100%', '100%', '100%', '70%'],
       m: '0 auto',
-      pt: [3, 3, 5]
+      pt: [4, 4, 5]
     },
     form: {
       display: 'grid',

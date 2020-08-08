@@ -5,7 +5,7 @@ export const Container: React.FC<{ styles?: SxStyleProp }> = ({ children, styles
     <Box
       sx={{
         width: '100%',
-        px: 1,
+        px: [2, 2, 1],
         m: '0 auto',
         maxWidth: ['100%', 540, 720, 960, 1140],
         ...styles

@@ -2,7 +2,7 @@ import { useNeuBoxShadow } from '@hooks/useBoxShadow'
 import { modes } from '@theme'
 import Link from 'next/link'
 import { FiGithub, FiMoon } from 'react-icons/fi'
-import { Button, Flex, Link as TLink, SxStyleProp, Text, useColorMode } from 'theme-ui'
+import { Button, Flex, Grid, Link as TLink, SxStyleProp, Text, useColorMode } from 'theme-ui'
 
 export const toggleMode = (mode: string, themeModes: typeof modes): string => {
   const index = themeModes.indexOf(mode)
@@ -14,13 +14,14 @@ export const NavBar: React.FC = () => {
 
   const styles: SxStyleProp = {
     wrapper: {
+      gridTemplateColumns: 'auto 1fr auto',
       alignItems: 'center',
-      justifyContent: 'space-between',
       pt: [3, 5]
     },
     logo: {
       fontFamily: 'heading',
-      fontSize: 2
+      fontSize: [2, 2, 3],
+      cursor: 'pointer'
     },
     button: {
       display: 'flex',
@@ -29,7 +30,6 @@ export const NavBar: React.FC = () => {
       width: [5, 5, 6],
       height: [5, 5, 6],
       borderRadius: 100,
-      ml: [2, 2, 2, 4],
       bg: 'transparent',
       color: 'text',
       outline: 'none',
@@ -40,30 +40,30 @@ export const NavBar: React.FC = () => {
   }
 
   return (
-    <Flex as="nav" sx={styles.wrapper}>
-      <Link href="/">
-        <Text as="a" sx={styles.logo}>
-          lop.si
-        </Text>
-      </Link>
-      <Flex>
-        <Button
-          aria-label="toggle theme"
-          onClick={() => setMode(toggleMode(mode, modes))}
-          sx={styles.button}
-        >
-          <FiMoon />
-        </Button>
-        <TLink
-          href="https://github.com/ixahmedxi/lop.si"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="github repo"
-          sx={styles.button}
-        >
-          <FiGithub />
-        </TLink>
+    <Grid as="nav" sx={styles.wrapper}>
+      <TLink
+        href="https://github.com/ixahmedxi/lop.si"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="github repo"
+        sx={styles.button}
+      >
+        <FiGithub />
+      </TLink>
+      <Flex sx={{ justifyContent: 'center' }}>
+        <Link href="/">
+          <Text as="a" sx={styles.logo}>
+            lop.si
+          </Text>
+        </Link>
       </Flex>
-    </Flex>
+      <Button
+        aria-label="toggle theme"
+        onClick={() => setMode(toggleMode(mode, modes))}
+        sx={styles.button}
+      >
+        <FiMoon />
+      </Button>
+    </Grid>
   )
 }

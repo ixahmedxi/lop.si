@@ -4,17 +4,18 @@ import { Link as TLink, SxStyleProp, Text } from 'theme-ui'
 
 const styles: SxStyleProp = {
   text: {
-    fontSize: 0,
+    fontSize: ['10px', '10px', 0],
     m: 0,
     p: 0,
-    lineHeight: 1,
+    lineHeight: 2,
     textAlign: 'center',
     pb: 2
   },
   anchor: {
     color: 'primary',
     textDecoration: 'underline',
-    cursor: 'pointer'
+    cursor: 'pointer',
+    fontWeight: 'bold'
   }
 }
 
@@ -31,7 +32,8 @@ export const Footer: React.FC = () => {
       >
         Ahmed Elsakaan
       </TLink>{' '}
-      <br /> By using our services you accept our{' '}
+      <br />
+      By using our services you accept our{' '}
       <Link href="/terms-and-conditions">
         <Text as="a" sx={styles.anchor} aria-label="terms and conditions page">
           Terms & Conditions
