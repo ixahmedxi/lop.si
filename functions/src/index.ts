@@ -1,7 +1,7 @@
 import * as admin from 'firebase-admin'
 import * as functions from 'firebase-functions'
 import { customAlphabet } from 'nanoid/async'
-import notRecentUrl from './utils/notRecentUrl'
+import { isRecentUrl } from './utils/isRecentUrl'
 import parseUrl from './utils/parseUrl'
 import { BadRequest, OkRequest } from './utils/ResTypes'
 import { idValidation, urlValidation } from './utils/schema'
@@ -17,14 +17,18 @@ export const createShortUrl = functions.https.onRequest(async (req, res) => {
   if (req.method === 'POST' && typeof url === 'string') {
     try {
       const value = await urlValidation.validate(parseUrl(url))
-      await notRecentUrl(res, db, value)
-      const id = await nanoid()
-      await db.add({
-        id,
-        url: value,
-        createdAt: admin.firestore.FieldValue.serverTimestamp()
-      })
-      OkRequest(res, id, value)
+      const isrecent = await isRecentUrl(db, value)
+      if (isrecent) {
+        BadRequest(res, ['url has been recently shortened'])
+      } else {
+        const id = await nanoid()
+        await db.add({
+          id,
+          url: value,
+          createdAt: admin.firestore.FieldValue.serverTimestamp()
+        })
+        OkRequest(res, id, value)
+      }
     } catch (error) {
       BadRequest(res, error.errors)
     }
