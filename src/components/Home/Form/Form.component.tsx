@@ -1,19 +1,18 @@
 /* @jsx jsx */
-import { useFirestore } from '@contexts/Firebase'
 import { useHomeContext } from '@contexts/Home'
 import { useNeuBoxShadow } from '@hooks/useBoxShadow'
+import { cfu } from '@utils/cloudFunctionsUrl'
+import axios from 'axios'
 import { FormEvent, useState } from 'react'
 import { FiPaperclip } from 'react-icons/fi'
 import { Box, Input, jsx, SxStyleProp } from 'theme-ui'
 import { FormErrors } from './FormErrors/FormErrors.component'
-import { schema } from './schema'
 import { SubmitButton } from './SubmitButton/SubmitButton.component'
 
 export const Form: React.FC = () => {
   const [url, setUrl] = useState('')
   const [errors, setErrors] = useState<string | null>(null)
   const { setId, isLoading, setIsLoading } = useHomeContext()
-  const { createOneUrl } = useFirestore()
 
   const styles: SxStyleProp = {
     wrapper: {
@@ -53,35 +52,17 @@ export const Form: React.FC = () => {
     }
   }
 
-  const onFormSubmit = (e: FormEvent<HTMLFormElement>): void => {
+  const onFormSubmit = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault()
     setErrors(null)
     setIsLoading(true)
-
-    let urlToBeSubmitted: string
-
-    if (url.includes('https://') || url.includes('http://')) {
-      urlToBeSubmitted = url
-    } else {
-      urlToBeSubmitted = 'https://' + url
+    try {
+      const { data } = await axios.post(cfu('createShortUrl', `?url=${url}`))
+      setId(data.id)
+    } catch (error) {
+      setErrors(error.response.data.errors[0])
     }
-
-    schema
-      .validate(urlToBeSubmitted)
-      .then((res) => {
-        createOneUrl(urlToBeSubmitted)
-          ?.then((createdId) => {
-            window.localStorage.setItem('last-url', urlToBeSubmitted)
-            setId(String(createdId))
-            setIsLoading(false)
-          })
-          .catch((error) => setErrors(String(error)))
-        return res
-      })
-      .catch((error) => {
-        setErrors(String(error))
-        setIsLoading(false)
-      })
+    setIsLoading(false)
   }
 
   return (

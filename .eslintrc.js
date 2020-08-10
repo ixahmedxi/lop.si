@@ -44,10 +44,16 @@ module.exports = {
       }
     ],
 
+    'promise/always-return': 0,
+
+    '@typescript-eslint/promise-function-async': 0,
+
     '@typescript-eslint/no-unused-vars': [
       1,
       { vars: 'all', args: 'all', varsIgnorePattern: '^jsx$' }
     ],
+
+    '@typescript-eslint/explicit-function-return-type': 0,
 
     // Next.js does not need React to be in the scope
     'react/react-in-jsx-scope': 0,

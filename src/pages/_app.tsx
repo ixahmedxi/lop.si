@@ -1,4 +1,3 @@
-import { FirebaseProvider } from '@contexts/Firebase'
 import { Container } from '@shared/Container'
 import { Footer } from '@shared/Footer'
 import { NavBar } from '@shared/NavBar'
@@ -20,21 +19,19 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
   }, [])
 
   return (
-    <FirebaseProvider>
-      <ThemeProvider theme={theme}>
-        <Container
-          styles={{
-            display: 'grid',
-            gridTemplateRows: ['auto 1fr auto', 'auto 1fr auto', 'auto 1fr auto', 'auto 1fr auto'],
-            minHeight: appHeight
-          }}
-        >
-          <NavBar />
-          <Component {...pageProps} />
-          <Footer />
-        </Container>
-      </ThemeProvider>
-    </FirebaseProvider>
+    <ThemeProvider theme={theme}>
+      <Container
+        styles={{
+          display: 'grid',
+          gridTemplateRows: ['auto 1fr auto', 'auto 1fr auto', 'auto 1fr auto', 'auto 1fr auto'],
+          minHeight: appHeight
+        }}
+      >
+        <NavBar />
+        <Component {...pageProps} />
+        <Footer />
+      </Container>
+    </ThemeProvider>
   )
 }
 
