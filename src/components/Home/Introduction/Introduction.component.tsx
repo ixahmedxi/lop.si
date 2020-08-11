@@ -21,7 +21,7 @@ const Description: SxStyleProp = {
 
 export const Introduction: React.FC = () => {
   return (
-    <Box sx={Wrapper}>
+    <Box sx={Wrapper} data-testid="introduction">
       <Text as="h1" sx={Title}>
         Create professional looking urls
       </Text>

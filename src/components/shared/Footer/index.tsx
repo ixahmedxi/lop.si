@@ -19,7 +19,7 @@ const styles: SxStyleProp = {
   }
 }
 
-export const Footer: React.FC = () => {
+export const Footer = () => {
   return (
     <Text as="p" sx={styles.text}>
       Made with <FiHeart /> by{' '}

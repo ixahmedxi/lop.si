@@ -1,0 +1,243 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form component matches snapshot 1`] = `
+.emotion-4 {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 32px;
+}
+
+@media screen and (min-width:576px) {
+  .emotion-4 {
+    width: 100%;
+    padding-top: 32px;
+  }
+}
+
+@media screen and (min-width:768px) {
+  .emotion-4 {
+    width: 100%;
+    padding-top: 40px;
+  }
+}
+
+@media screen and (min-width:992px) {
+  .emotion-4 {
+    width: 70%;
+  }
+}
+
+.emotion-3 {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  place-items: center;
+  border-radius: 100px;
+  padding: 4px;
+  border: 3px solid;
+  border-color: transparent;
+  -webkit-transition: none;
+  transition: none;
+  box-shadow: none;
+}
+
+.emotion-0 {
+  color: var(--theme-ui-colors-text,#EEEEEE);
+  -webkit-transition: color 0.2s ease-out;
+  transition: color 0.2s ease-out;
+  font-size: 12px;
+  opacity: 0.5;
+  margin-left: 24px;
+}
+
+@media screen and (min-width:576px) {
+  .emotion-0 {
+    font-size: 12px;
+    margin-left: 24px;
+  }
+}
+
+@media screen and (min-width:768px) {
+  .emotion-0 {
+    font-size: 16px;
+    margin-left: 40px;
+  }
+}
+
+.emotion-1 {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  display: block;
+  width: 100%;
+  padding: 16px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  font-size: inherit;
+  line-height: inherit;
+  border: 1px solid;
+  border-radius: 4px;
+  color: inherit;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  padding-left: 24px;
+  padding-right: 24px;
+  height: 40px;
+  font-size: 12px;
+}
+
+@media screen and (min-width:576px) {
+  .emotion-1 {
+    height: 40px;
+    font-size: 12px;
+  }
+}
+
+@media screen and (min-width:768px) {
+  .emotion-1 {
+    height: 48px;
+    font-size: 16px;
+  }
+}
+
+.emotion-1::-webkit-input-placeholder {
+  color: var(--theme-ui-colors-text,#EEEEEE);
+  opacity: 0.5;
+  -webkit-transition: color 0.2s ease-out;
+  transition: color 0.2s ease-out;
+}
+
+.emotion-1::-moz-placeholder {
+  color: var(--theme-ui-colors-text,#EEEEEE);
+  opacity: 0.5;
+  -webkit-transition: color 0.2s ease-out;
+  transition: color 0.2s ease-out;
+}
+
+.emotion-1:-ms-input-placeholder {
+  color: var(--theme-ui-colors-text,#EEEEEE);
+  opacity: 0.5;
+  -webkit-transition: color 0.2s ease-out;
+  transition: color 0.2s ease-out;
+}
+
+.emotion-1::placeholder {
+  color: var(--theme-ui-colors-text,#EEEEEE);
+  opacity: 0.5;
+  -webkit-transition: color 0.2s ease-out;
+  transition: color 0.2s ease-out;
+}
+
+.emotion-2 {
+  height: 40px;
+  width: 40px;
+  outline: none;
+  border: none;
+  font-size: 16px;
+  background-color: var(--theme-ui-colors-primary,#8093f2);
+  color: var(--theme-ui-colors-background,#2B2D32);
+  border-radius: 100px;
+  padding: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  cursor: pointer;
+  -webkit-transition: none;
+  transition: none;
+  box-shadow: none;
+}
+
+@media screen and (min-width:576px) {
+  .emotion-2 {
+    height: 40px;
+    width: 40px;
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width:768px) {
+  .emotion-2 {
+    height: 48px;
+    width: 48px;
+    font-size: 20px;
+  }
+}
+
+<div>
+  <div
+    class="emotion-4"
+    data-testid="form"
+  >
+    <form
+      autocomplete="off"
+      class="emotion-3"
+      novalidate=""
+    >
+      <svg
+        class="emotion-0"
+        fill="none"
+        height="1em"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"
+        />
+      </svg>
+      <input
+        class="emotion-1"
+        name="url"
+        placeholder="Paste your url here..."
+        type="url"
+        value=""
+      />
+      <button
+        aria-label="create a short url"
+        class="emotion-2"
+        type="submit"
+      >
+        <svg
+          data-testid="arrow-right"
+          fill="none"
+          height="1em"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <line
+            x1="5"
+            x2="19"
+            y1="12"
+            y2="12"
+          />
+          <polyline
+            points="12 5 19 12 12 19"
+          />
+        </svg>
+      </button>
+    </form>
+  </div>
+</div>
+`;

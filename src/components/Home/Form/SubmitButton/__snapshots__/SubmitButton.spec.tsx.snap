@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Submit Button matches snapshot 1`] = `
+.emotion-0 {
+  height: 40px;
+  width: 40px;
+  outline: none;
+  border: none;
+  font-size: 16px;
+  background-color: var(--theme-ui-colors-primary,#8093f2);
+  color: var(--theme-ui-colors-background,#2B2D32);
+  border-radius: 100px;
+  padding: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  cursor: pointer;
+  -webkit-transition: none;
+  transition: none;
+  box-shadow: none;
+}
+
+@media screen and (min-width:576px) {
+  .emotion-0 {
+    height: 40px;
+    width: 40px;
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width:768px) {
+  .emotion-0 {
+    height: 48px;
+    width: 48px;
+    font-size: 20px;
+  }
+}
+
+<div>
+  <button
+    aria-label="create a short url"
+    class="emotion-0"
+    type="submit"
+  >
+    <svg
+      data-testid="arrow-right"
+      fill="none"
+      height="1em"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      viewBox="0 0 24 24"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <line
+        x1="5"
+        x2="19"
+        y1="12"
+        y2="12"
+      />
+      <polyline
+        points="12 5 19 12 12 19"
+      />
+    </svg>
+  </button>
+</div>
+`;

@@ -1,7 +1,6 @@
 /* @jsx jsx */
 import { Container } from '@shared/Container'
-import { cfu } from '@utils/cloudFunctionsUrl'
-import axios from 'axios'
+import { findUrlById } from '@utils/cloudFunctions'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { Flex, jsx, Spinner } from 'theme-ui'
@@ -12,8 +11,7 @@ const RedirectComponent: React.FC = () => {
 
   useEffect(() => {
     if (typeof id === 'string') {
-      axios
-        .get(cfu('findUrlById', `?id=${id}`))
+      findUrlById(id)
         .then(({ data }) => {
           window.location.href = data.url
         })

@@ -19,7 +19,7 @@ const styles: SxStyleProp = {
   }
 }
 
-export const FormErrors: React.FC<PropTypes> = ({ errors }) => {
+export const FormErrors = ({ errors }: PropTypes) => {
   if (errors === null) {
     return null
   }

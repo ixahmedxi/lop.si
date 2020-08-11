@@ -6,7 +6,7 @@ import { FiCheckSquare, FiClipboard } from 'react-icons/fi'
 import useClipboard from 'react-use-clipboard'
 import { Box, Flex, jsx, Spinner, SxStyleProp, Text } from 'theme-ui'
 
-export const Card: React.FC = () => {
+export const Card = () => {
   const { id, isLoading } = useHomeContext()
   const cardShadow = useNeuBoxShadow(10, 20)
   const iconButtonShadow = useNeuBoxShadow(3, 6)
@@ -59,7 +59,7 @@ export const Card: React.FC = () => {
   }
 
   return (
-    <Box sx={styles.column}>
+    <Box sx={styles.column} data-testid="card">
       <Box sx={styles.copiedBox}>
         <Text
           as="p"

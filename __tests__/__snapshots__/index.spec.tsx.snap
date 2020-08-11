@@ -1,7 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Home Page matches snapshot 1`] = `
-.emotion-8 {
+@keyframes animation-0 {
+  from {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.emotion-21 {
   padding-top: 48px;
 }
 
@@ -82,13 +96,13 @@ exports[`Home Page matches snapshot 1`] = `
   min-width: 0;
   width: 100%;
   margin: 0 auto;
-  padding-top: 24px;
+  padding-top: 32px;
 }
 
 @media screen and (min-width:576px) {
   .emotion-7 {
     width: 100%;
-    padding-top: 24px;
+    padding-top: 32px;
   }
 }
 
@@ -113,12 +127,15 @@ exports[`Home Page matches snapshot 1`] = `
   padding: 4px;
   border: 3px solid;
   border-color: transparent;
-  -webkit-transition: border-color 0.2s ease-out;
-  transition: border-color 0.2s ease-out;
+  -webkit-transition: none;
+  transition: none;
   box-shadow: none;
 }
 
 .emotion-3 {
+  color: var(--theme-ui-colors-text,#EEEEEE);
+  -webkit-transition: color 0.2s ease-out;
+  transition: color 0.2s ease-out;
   font-size: 12px;
   opacity: 0.5;
   margin-left: 24px;
@@ -179,21 +196,29 @@ exports[`Home Page matches snapshot 1`] = `
 .emotion-4::-webkit-input-placeholder {
   color: var(--theme-ui-colors-text,#EEEEEE);
   opacity: 0.5;
+  -webkit-transition: color 0.2s ease-out;
+  transition: color 0.2s ease-out;
 }
 
 .emotion-4::-moz-placeholder {
   color: var(--theme-ui-colors-text,#EEEEEE);
   opacity: 0.5;
+  -webkit-transition: color 0.2s ease-out;
+  transition: color 0.2s ease-out;
 }
 
 .emotion-4:-ms-input-placeholder {
   color: var(--theme-ui-colors-text,#EEEEEE);
   opacity: 0.5;
+  -webkit-transition: color 0.2s ease-out;
+  transition: color 0.2s ease-out;
 }
 
 .emotion-4::placeholder {
   color: var(--theme-ui-colors-text,#EEEEEE);
   opacity: 0.5;
+  -webkit-transition: color 0.2s ease-out;
+  transition: color 0.2s ease-out;
 }
 
 .emotion-5 {
@@ -219,6 +244,8 @@ exports[`Home Page matches snapshot 1`] = `
   -ms-flex-pack: center;
   justify-content: center;
   cursor: pointer;
+  -webkit-transition: none;
+  transition: none;
   box-shadow: none;
 }
 
@@ -238,12 +265,248 @@ exports[`Home Page matches snapshot 1`] = `
   }
 }
 
+.emotion-20 {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  width: 83.33333333333333%;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-top: 88px;
+  opacity: 0;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 200px;
+  -webkit-transition: none;
+  transition: none;
+  position: relative;
+  box-shadow: none;
+}
+
+@media screen and (min-width:576px) {
+  .emotion-20 {
+    width: 66.66666666666667%;
+  }
+}
+
+@media screen and (min-width:768px) {
+  .emotion-20 {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width:992px) {
+  .emotion-20 {
+    width: 33.333333333333336%;
+  }
+}
+
+.emotion-10 {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  width: 100%;
+  background-color: var(--theme-ui-colors-primary,#8093f2);
+  color: var(--theme-ui-colors-background,#2B2D32);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  text-align: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 0;
+  -webkit-transition: 0.2s ease-out;
+  transition: 0.2s ease-out;
+}
+
+.emotion-9 {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  opacity: 0;
+}
+
+.emotion-8 {
+  margin-right: 8px;
+}
+
+.emotion-16 {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  padding: 32px;
+  opacity: 1;
+  -webkit-transition: opacity 0.2s ease-out;
+  transition: opacity 0.2s ease-out;
+}
+
+@media screen and (min-width:576px) {
+  .emotion-16 {
+    padding: 32px;
+  }
+}
+
+@media screen and (min-width:768px) {
+  .emotion-16 {
+    padding: 40px;
+  }
+}
+
+.emotion-11 {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--theme-ui-colors-primary,#8093f2);
+}
+
+.emotion-12 {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  font-size: 12px;
+  padding-top: 8px;
+  line-height: 1.8;
+  opacity: 0.7;
+}
+
+.emotion-15 {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding-top: 8px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+@media screen and (min-width:576px) {
+  .emotion-15 {
+    padding-top: 8px;
+  }
+}
+
+@media screen and (min-width:768px) {
+  .emotion-15 {
+    padding-top: 16px;
+  }
+}
+
+.emotion-13 {
+  color: var(--theme-ui-colors-primary,#8093f2);
+  font-size: 16px;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.emotion-14 {
+  -webkit-transition: none;
+  transition: none;
+  box-shadow: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  border: none;
+  background-color: transparent;
+  color: var(--theme-ui-colors-primary,#8093f2);
+  cursor: pointer;
+  outline: none;
+}
+
+.emotion-19 {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 20px;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background-color: var(--theme-ui-colors-background,#2B2D32);
+  opacity: 0;
+  z-index: -1;
+  -webkit-transition: opacity 0.2s ease-out;
+  transition: opacity 0.2s ease-out;
+}
+
+.emotion-18 {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  color: var(--theme-ui-colors-primary,#8093f2);
+  overflow: visible;
+  color: var(--theme-ui-colors-primary,#8093f2);
+}
+
+.emotion-17 {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  -webkit-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  -webkit-animation-name: animation-0;
+  animation-name: animation-0;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-duration: 500ms;
+  animation-duration: 500ms;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+
 <div>
   <div
-    class="emotion-8"
+    class="emotion-21"
   >
     <div
       class="emotion-2"
+      data-testid="introduction"
     >
       <h1
         class="emotion-0"
@@ -258,6 +521,7 @@ exports[`Home Page matches snapshot 1`] = `
     </div>
     <div
       class="emotion-7"
+      data-testid="form"
     >
       <form
         autocomplete="off"
@@ -285,6 +549,7 @@ exports[`Home Page matches snapshot 1`] = `
           name="url"
           placeholder="Paste your url here..."
           type="url"
+          value=""
         />
         <button
           aria-label="create a short url"
@@ -292,6 +557,7 @@ exports[`Home Page matches snapshot 1`] = `
           type="submit"
         >
           <svg
+            data-testid="arrow-right"
             fill="none"
             height="1em"
             stroke="currentColor"
@@ -314,6 +580,123 @@ exports[`Home Page matches snapshot 1`] = `
           </svg>
         </button>
       </form>
+    </div>
+    <div
+      class="emotion-20"
+      data-testid="card"
+    >
+      <div
+        class="emotion-10"
+      >
+        <p
+          class="emotion-9"
+        >
+          <svg
+            class="emotion-8"
+            fill="none"
+            height="1em"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <polyline
+              points="9 11 12 14 22 4"
+            />
+            <path
+              d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"
+            />
+          </svg>
+           Copied to clipboard!
+        </p>
+      </div>
+      <div
+        class="emotion-16"
+      >
+        <h2
+          class="emotion-11"
+        >
+          Your created short url:
+        </h2>
+        <p
+          class="emotion-12"
+        >
+          Here's your newly created short url for you to freely use everywhere.
+        </p>
+        <div
+          class="emotion-15"
+        >
+          <a
+            class="emotion-13"
+          >
+            lop.si/
+          </a>
+          <button
+            aria-label="copy to clipboard"
+            class="emotion-14"
+            type="button"
+          >
+            <svg
+              fill="none"
+              height="1em"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+              />
+              <rect
+                height="4"
+                rx="1"
+                ry="1"
+                width="8"
+                x="8"
+                y="2"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div
+        class="emotion-19"
+      >
+        <svg
+          class="emotion-18"
+          fill="none"
+          height="48"
+          role="img"
+          stroke="currentcolor"
+          stroke-width="4"
+          viewBox="0 0 32 32"
+          width="48"
+        >
+          <title>
+            Loading...
+          </title>
+          <circle
+            cx="16"
+            cy="16"
+            opacity="0.125"
+            r="12"
+          />
+          <circle
+            class="emotion-17"
+            cx="16"
+            cy="16"
+            r="12"
+            stroke-dasharray="75.39822368615503"
+            stroke-dashoffset="56.548667764616276"
+          />
+        </svg>
+      </div>
     </div>
   </div>
 </div>

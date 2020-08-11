@@ -75,6 +75,7 @@ exports[`Introduction Component matches snapshot 1`] = `
 <div>
   <div
     class="emotion-2"
+    data-testid="introduction"
   >
     <h1
       class="emotion-0"

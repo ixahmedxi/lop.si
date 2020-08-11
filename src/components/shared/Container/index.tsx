@@ -1,6 +1,12 @@
+import { ReactNode } from 'react'
 import { Box, SxStyleProp } from 'theme-ui'
 
-export const Container: React.FC<{ styles?: SxStyleProp }> = ({ children, styles }) => {
+interface ContainerProps {
+  children: ReactNode
+  styles?: SxStyleProp
+}
+
+export const Container = ({ children, styles }: ContainerProps) => {
   return (
     <Box
       sx={{

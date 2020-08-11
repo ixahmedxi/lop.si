@@ -9,7 +9,7 @@ export const toggleMode = (mode: string, themeModes: typeof modes): string => {
   return themeModes[(Number(index) + 1) % themeModes.length]
 }
 
-export const NavBar: React.FC = () => {
+export const NavBar = () => {
   const [mode, setMode] = useColorMode()
 
   const styles: SxStyleProp = {

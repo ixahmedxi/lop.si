@@ -1,15 +1,14 @@
 /* @jsx jsx */
 import { useHomeContext } from '@contexts/Home'
 import { useNeuBoxShadow } from '@hooks/useBoxShadow'
-import { cfu } from '@utils/cloudFunctionsUrl'
-import axios from 'axios'
+import { createUrl } from '@utils/cloudFunctions'
 import { FormEvent, useState } from 'react'
 import { FiPaperclip } from 'react-icons/fi'
 import { Box, Input, jsx, SxStyleProp } from 'theme-ui'
 import { FormErrors } from './FormErrors/FormErrors.component'
 import { SubmitButton } from './SubmitButton/SubmitButton.component'
 
-export const Form: React.FC = () => {
+export const Form = () => {
   const [url, setUrl] = useState('')
   const [errors, setErrors] = useState<string | null>(null)
   const { setId, isLoading, setIsLoading } = useHomeContext()
@@ -57,7 +56,7 @@ export const Form: React.FC = () => {
     setErrors(null)
     setIsLoading(true)
     try {
-      const { data } = await axios.post(cfu('createShortUrl', `?url=${url}`))
+      const { data } = await createUrl(url)
       setId(data.id)
     } catch (error) {
       setErrors(error.response.data.errors[0])
@@ -66,7 +65,7 @@ export const Form: React.FC = () => {
   }
 
   return (
-    <Box sx={styles.wrapper}>
+    <Box sx={styles.wrapper} data-testid="form">
       <form sx={styles.form} onSubmit={onFormSubmit} autoComplete="off" noValidate>
         <FiPaperclip sx={styles.icon} />
         <Input

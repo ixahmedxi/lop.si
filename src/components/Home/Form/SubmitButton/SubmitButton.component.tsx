@@ -3,7 +3,11 @@ import { useNeuBoxShadow } from '@hooks/useBoxShadow'
 import { FiArrowRight } from 'react-icons/fi'
 import { jsx, Spinner, SxStyleProp } from 'theme-ui'
 
-export const SubmitButton: React.FC<{ isLoading: boolean }> = ({ isLoading }) => {
+interface SubmitButtonProps {
+  isLoading: boolean
+}
+
+export const SubmitButton = ({ isLoading }: SubmitButtonProps) => {
   const styles: SxStyleProp = {
     button: {
       height: [5, 5, 6],
@@ -19,14 +23,18 @@ export const SubmitButton: React.FC<{ isLoading: boolean }> = ({ isLoading }) =>
       alignItems: 'center',
       justifyContent: 'center',
       cursor: 'pointer',
-      ...useNeuBoxShadow(5, 10),
-      transition: 'box-shadow 0.2s ease-out, background-color 0.2s ease-out, color 0.2s ease-out'
+      transition: 'box-shadow 0.2s ease-out, background-color 0.2s ease-out, color 0.2s ease-out',
+      ...useNeuBoxShadow(5, 10)
     }
   }
 
   return (
     <button sx={styles.button} type="submit" aria-label="create a short url">
-      {isLoading ? <Spinner variant="styles.spinner" size={24} /> : <FiArrowRight />}
+      {isLoading ? (
+        <Spinner variant="styles.spinner" size={24} data-testid="spinner" />
+      ) : (
+        <FiArrowRight data-testid="arrow-right" />
+      )}
     </button>
   )
 }

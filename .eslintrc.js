@@ -53,6 +53,8 @@ module.exports = {
       { vars: 'all', args: 'all', varsIgnorePattern: '^jsx$' }
     ],
 
+    '@typescript-eslint/explicit-module-boundary-types': 0,
+
     '@typescript-eslint/explicit-function-return-type': 0,
 
     // Next.js does not need React to be in the scope
