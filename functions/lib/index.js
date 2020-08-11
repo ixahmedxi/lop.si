@@ -4,7 +4,7 @@ exports.findUrlById = exports.createShortUrl = void 0;
 const admin = require("firebase-admin");
 const functions = require("firebase-functions");
 const async_1 = require("nanoid/async");
-const notRecentUrl_1 = require("./utils/notRecentUrl");
+const isRecentUrl_1 = require("./utils/isRecentUrl");
 const parseUrl_1 = require("./utils/parseUrl");
 const ResTypes_1 = require("./utils/ResTypes");
 const schema_1 = require("./utils/schema");
@@ -17,14 +17,19 @@ exports.createShortUrl = functions.https.onRequest(async (req, res) => {
     if (req.method === 'POST' && typeof url === 'string') {
         try {
             const value = await schema_1.urlValidation.validate(parseUrl_1.default(url));
-            await notRecentUrl_1.default(res, db, value);
-            const id = await nanoid();
-            await db.add({
-                id,
-                url: value,
-                createdAt: admin.firestore.FieldValue.serverTimestamp()
-            });
-            ResTypes_1.OkRequest(res, id, value);
+            const isrecent = await isRecentUrl_1.isRecentUrl(db, value);
+            if (isrecent) {
+                ResTypes_1.BadRequest(res, ['url has been recently shortened']);
+            }
+            else {
+                const id = await nanoid();
+                await db.add({
+                    id,
+                    url: value,
+                    createdAt: admin.firestore.FieldValue.serverTimestamp()
+                });
+                ResTypes_1.OkRequest(res, id, value);
+            }
         }
         catch (error) {
             ResTypes_1.BadRequest(res, error.errors);
