@@ -2,13 +2,14 @@
 import { useHomeContext } from '@contexts/Home'
 import { useNeuBoxShadow } from '@hooks/useBoxShadow'
 import { createUrl } from '@utils/cloudFunctions'
-import { FormEvent, useState } from 'react'
+import { FormEvent, useEffect, useRef, useState } from 'react'
 import { FiPaperclip } from 'react-icons/fi'
 import { Box, Input, jsx, SxStyleProp } from 'theme-ui'
 import { FormErrors } from './FormErrors/FormErrors.component'
 import { SubmitButton } from './SubmitButton/SubmitButton.component'
 
 export const Form = () => {
+  const inputRef = useRef<HTMLInputElement>(null)
   const [url, setUrl] = useState('')
   const [errors, setErrors] = useState<string | null>(null)
   const { setId, isLoading, setIsLoading } = useHomeContext()
@@ -64,6 +65,10 @@ export const Form = () => {
     setIsLoading(false)
   }
 
+  useEffect(() => {
+    inputRef.current !== null && inputRef.current.focus()
+  }, [])
+
   return (
     <Box sx={styles.wrapper} data-testid="form">
       <form sx={styles.form} onSubmit={onFormSubmit} autoComplete="off" noValidate>
@@ -75,6 +80,7 @@ export const Form = () => {
           placeholder="Paste your url here..."
           value={url}
           onChange={(e) => setUrl(e.target.value)}
+          ref={inputRef}
         />
         <SubmitButton isLoading={isLoading} />
       </form>

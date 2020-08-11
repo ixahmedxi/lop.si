@@ -47,6 +47,7 @@ module.exports = {
     'promise/always-return': 0,
 
     '@typescript-eslint/promise-function-async': 0,
+    '@typescript-eslint/prefer-optional-chain': 0,
 
     '@typescript-eslint/no-unused-vars': [
       1,
