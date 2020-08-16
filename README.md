@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="public/assets/logo.svg" alt="lop.si" width="115">
+  <img src="public/assets/logo.svg" alt="lop.si" width="150">
   <p>An open source url shortener made with Next.js, theme-ui and Firebase cloud functions. Design heavily influenced by neumorphism ✨</p>
   <a href="https://github.com/ixahmedxi/lop.si/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/ixahmedxi/lop.si?style=flat-square"></a>
   <a href="https://github.com/ixahmedxi/lop.si/network"><img alt="GitHub forks" src="https://img.shields.io/github/forks/ixahmedxi/lop.si?style=flat-square"></a>
@@ -12,7 +12,7 @@
 
 ###
 
-![Lop.si demo](demo.gif)
+![Lop.si demo](https://rawcdn.githack.com/ixahmedxi/lop.si/597afe52ccb5507c8e14fff7ef82703e9194fca9/public/assets/demo.gif)
 
 ## Features
 
