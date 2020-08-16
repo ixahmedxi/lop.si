@@ -1,19 +1,26 @@
-# Lop.si ✨
+<div align="center">
+  <img src="public/assets/logo.svg" alt="lop.si" width="115">
+  <p>An open source url shortener made with Next.js, theme-ui and Firebase cloud functions. Design heavily influenced by neumorphism ✨</p>
+  <a href="https://github.com/ixahmedxi/lop.si/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/ixahmedxi/lop.si?style=flat-square"></a>
+  <a href="https://github.com/ixahmedxi/lop.si/network"><img alt="GitHub forks" src="https://img.shields.io/github/forks/ixahmedxi/lop.si?style=flat-square"></a>
+  <a href="https://github.com/ixahmedxi/lop.si/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/ixahmedxi/lop.si?style=flat-square"></a>
+  <a href="https://github.com/ixahmedxi/lop.si/blob/master/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/ixahmedxi/lop.si?style=flat-square"></a>
+  <img alt="Website" src="https://img.shields.io/website?down_color=red&down_message=offline&style=flat-square&up_color=green&up_message=online&url=https%3A%2F%2Flop.si">
+  <img alt="GitHub package.json version" src="https://img.shields.io/github/package-json/v/ixahmedxi/lop.si?style=flat-square">
+  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/ixahmedxi/lop.si?style=flat-square">
+</div>
 
-> A simple neumorphic url shortener made with Next.js, ThemeUI, Firebase and wirtten in TypeScript.
+###
 
-## Introduction
+![Lop.si demo](demo.gif)
 
-lop.si is a simple url shortner that is built on neumorphism, its sole objective is to provide a quick and easy way to generate really short urls to be used instead of long ones. The project is fully open source, free to use and ad free. It uses [next-boilerpack](https://github.com/ixahmedxi/next-boilerpack) as the boilerplate for the project and firebase for the server side operations and database.
+## Features
 
-## Future Plans
-
-Contributions are very welcome, I do have some future plans for the project but if you would like to contribute to the project to help make these plans become reality feel free to do so, till now the current future plans for the project are as follows. If a contribution consists of new or updated UI elements please make sure they follow the neumorphic guide and that they do not clutter the webpage.
-
-- Refactor components to make them more manageable and organised.
-- Add tests for the components to ensure they work as they are supposed to.
-- Add authentication to allow the ability for the user to manage their created urls.
-- Add the ability for the user to see analytics info about their created urls such as view counts.
+* **Dark/Light modes.**
+* **Created urls are only 11 characters long, 4 of them are the id of the url**.
+* **Clean UI**
+* **Responsive**
+* **Highly performant**
 
 ## Contributing
 
