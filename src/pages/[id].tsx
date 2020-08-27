@@ -1,34 +1,23 @@
-/* @jsx jsx */
-import { Container } from '@shared/Container'
 import { findUrlById } from '@utils/cloudFunctions'
-import { useRouter } from 'next/router'
-import { useEffect } from 'react'
-import { Flex, jsx, Spinner } from 'theme-ui'
+import { NextPage } from 'next'
 
-const RedirectComponent: React.FC = () => {
-  const router = useRouter()
-  const { id } = router.query
+const RedirectComponent: NextPage = () => {
+  return null
+}
 
-  useEffect(() => {
-    if (typeof id === 'string') {
-      findUrlById(id)
-        .then(({ data }) => {
-          window.location.href = data.url
-        })
-        .catch(() => router.push('/404'))
+RedirectComponent.getInitialProps = async ({ res, query }) => {
+  const { id } = query
+  if (typeof id === 'string' && typeof res !== 'undefined') {
+    try {
+      const { url } = (await findUrlById(id)).data
+      res.writeHead(301, { Location: url })
+      res.end()
+    } catch {
+      res.writeHead(301, { Location: '/404' })
+      res.end()
     }
-  })
-
-  return (
-    <Container styles={{ display: 'grid', placeItems: 'start center', height: '100%', pt: 12 }}>
-      <div>
-        <Flex sx={{ justifyContent: 'center', pb: 3 }}>
-          <Spinner variant="spinner" />
-        </Flex>
-        <h1 sx={{ fontSize: [2, 2, 3], color: 'primary' }}>Redirecting to url...</h1>
-      </div>
-    </Container>
-  )
+  }
+  return {}
 }
 
 export default RedirectComponent
