@@ -232,6 +232,13 @@ const TermsAndConditions: React.FC = () => {
         third party rights.
       </p>
 
+      <p>
+        This website may include links to other websites. These links are user generated and are
+        provided for the sole objective of offering convenience in providing further information.
+        Any linked website does not signify that we endorse it. We have no responsibility for the
+        content of the linked websites.
+      </p>
+
       <h3>
         <strong>Your Privacy</strong>
       </h3>
